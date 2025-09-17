@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>مدونة أحمد محمد - أفكار ومقالات ملهمة في التقنية والثقافة</title>
+    <meta name="description" content="مدونة شخصية أشارك فيها أحدث المقالات في التقنية، التطوير الشخصي، الثقافة والسفر. اكتشف محتوى عربي مفيد وملهم.">
+    <meta name="keywords" content="مدونة عربية، تقنية، ذكاء اصطناعي، تطوير شخصي، ثقافة، سفر، طبخ، مقالات">
+    <meta name="author" content="أحمد محمد">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Arabic">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="مدونة أحمد محمد - أفكار ومقالات ملهمة">
+    <meta property="og:description" content="مدونة شخصية أشارك فيها أحدث المقالات في التقنية، التطوير الشخصي، الثقافة والسفر">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ahmed-blog.netlify.app">
+    <meta property="og:site_name" content="مدونة أحمد محمد">
+    <meta property="og:locale" content="ar_AR">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="مدونة أحمد محمد - أفكار ومقالات ملهمة">
+    <meta name="twitter:description" content="مدونة شخصية أشارك فيها أحدث المقالات في التقنية، التطوير الشخصي، الثقافة والسفر">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235D5CDE'%3E%3Cpath d='M20.1 5.1a8.1 8.1 0 0 0-11.4 0L4.9 9l3.5 3.5-3.5 3.5 3.8 3.8a8.1 8.1 0 0 0 11.4 0 8.1 8.1 0 0 0 0-11.4L16.3 12l3.8-3.8-3.8-3.8a1.7 1.7 0 0 0-2.4 0L12 8.3l-1.9-1.9a1.7 1.7 0 0 0-2.4 2.4L9.6 10.7 8.3 12 9.6 13.3l-1.9 1.9a1.7 1.7 0 0 0 2.4 2.4l1.9-1.9L14.4 13.3 12 15.7l1.9 1.9a1.7 1.7 0 0 0 2.4-2.4L14.4 13.3l1.3-1.3-1.3-1.3 1.9-1.9z'/%3E%3C/svg%3E">
+    
+    <!-- CSS Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#F8F9FA',
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #5D5CDE 0%, #8B7CFF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="0.3" fill="white" opacity="0.1"/><circle cx="40" cy="70" r="0.4" fill="white" opacity="0.1"/><circle cx="90" cy="90" r="0.2" fill="white" opacity="0.1"/><circle cx="10" cy="80" r="0.6" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(93, 92, 222, 0.15);
+        }
+        
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float-up 6s linear infinite;
+        }
+        
+        @keyframes float-up {
+            0% { 
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                opacity: 0;
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #5D5CDE, #8B7CFF);
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+        
+        .rtl-support {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "مدونة أحمد محمد",
+        "description": "مدونة شخصية أشارك فيها أحدث المقالات في التقنية، التطوير الشخصي، الثقافة والسفر",
+        "url": "https://ahmed-blog.netlify.app",
+        "author": {
+            "@type": "Person",
+            "name": "أحمد محمد",
+            "description": "كاتب ومدون متخصص في التقنية والتطوير الشخصي"
+        },
+        "inLanguage": "ar"
+    }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 rtl-support">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress"></div>
+    
+    <!-- Header -->
+    <header class="gradient-bg shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-pen-nib text-primary text-lg"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">مدونة أحمد محمد</h1>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6 space-x-reverse">
+                    <a href="#home" class="text-white hover:text-gray-200 transition-colors">الرئيسية</a>
+                    <a href="#articles" class="text-white hover:text-gray-200 transition-colors">المقالات</a>
+                    <a href="#categories" class="text-white hover:text-gray-200 transition-colors">الأقسام</a>
+                    <a href="#about" class="text-white hover:text-gray-200 transition-colors">نبذة عني</a>
+                    <a href="#contact" class="text-white hover:text-gray-200 transition-colors">تواصل معي</a>
+                </nav>
+                
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <button id="theme-toggle" class="p-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition-all" title="تبديل الوضع المظلم">
+                        <i class="fas fa-moon text-white"></i>
+                    </button>
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-full bg-white bg-opacity-20 hover:bg-opacity-30 transition-all">
+                        <i class="fas fa-bars text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-800 shadow-lg md:hidden z-50">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-xl font-bold text-gray-800 dark:text-white">القائمة</h2>
+                    <button id="mobile-menu-close" class="p-2 text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <nav class="space-y-4">
+                    <a href="#home" class="block text-gray-800 dark:text-white hover:text-primary transition-colors mobile-menu-link">الرئيسية</a>
+                    <a href="#articles" class="block text-gray-800 dark:text-white hover:text-primary transition-colors mobile-menu-link">المقالات</a>
+                    <a href="#categories" class="block text-gray-800 dark:text-white hover:text-primary transition-colors mobile-menu-link">الأقسام</a>
+                    <a href="#about" class="block text-gray-800 dark:text-white hover:text-primary transition-colors mobile-menu-link">نبذة عني</a>
+                    <a href="#contact" class="block text-gray-800 dark:text-white hover:text-primary transition-colors mobile-menu-link">تواصل معي</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg py-20 relative overflow-hidden">
+        <div class="floating-elements">
+            <div class="floating-element w-4 h-4" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-element w-6 h-6" style="left: 20%; animation-delay: 1s;"></div>
+            <div class="floating-element w-3 h-3" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="floating-element w-5 h-5" style="left: 40%; animation-delay: 0.5s;"></div>
+            <div class="floating-element w-4 h-4" style="left: 50%; animation-delay: 1.5s;"></div>
+            <div class="floating-element w-7 h-7" style="left: 60%; animation-delay: 0.8s;"></div>
+            <div class="floating-element w-3 h-3" style="left: 70%; animation-delay: 2.2s;"></div>
+            <div class="floating-element w-5 h-5" style="left: 80%; animation-delay: 1.8s;"></div>
+            <div class="floating-element w-4 h-4" style="left: 90%; animation-delay: 0.3s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="fade-in">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">مرحباً بك في مدونتي</h2>
+                <p class="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+                    هنا أشارك معك أحدث المقالات والأفكار في عالم التقنية، التطوير الشخصي، والثقافة العربية المعاصرة
+                </p>
+                <a href="#articles" class="inline-block bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all hover:transform hover:scale-105 glassmorphism">
+                    <i class="fas fa-arrow-down ml-2"></i>
+                    استكشف المقالات
+                </a>
+            </div>
+            
+            <!-- Stats Counter -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-2xl mx-auto fade-in">
+                <div class="glassmorphism rounded-xl p-4 text-center">
+                    <div class="count-up text-3xl font-bold text-white" data-target="147">0</div>
+                    <p class="text-gray-200 text-sm">مقال منشور</p>
+                </div>
+                <div class="glassmorphism rounded-xl p-4 text-center">
+                    <div class="count-up text-3xl font-bold text-white" data-target="3240">0</div>
+                    <p class="text-gray-200 text-sm">قارئ متابع</p>
+                </div>
+                <div class="glassmorphism rounded-xl p-4 text-center">
+                    <div class="count-up text-3xl font-bold text-white" data-target="12">0</div>
+                    <p class="text-gray-200 text-sm">قسم مختلف</p>
+                </div>
+                <div class="glassmorphism rounded-xl p-4 text-center">
+                    <div class="count-up text-3xl font-bold text-white" data-target="98">0</div>
+                    <p class="text-gray-200 text-sm">% رضا القراء</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Articles Section -->
+            <div class="lg:col-span-2" id="articles">
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white">
+                        <i class="fas fa-newspaper text-primary ml-3"></i>
+                        أحدث المقالات
+                    </h3>
+                </div>
+                
+                <!-- Featured Article -->
+                <article class="card-hover bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden mb-8 fade-in">
+                    <div class="h-64 bg-gradient-to-r from-purple-500 to-pink-500 relative">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <div class="text-white text-center">
+                                <i class="fas fa-robot text-4xl mb-4"></i>
+                                <p class="text-lg font-semibold">صورة توضيحية للذكاء الاصطناعي</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="inline-block bg-primary text-white px-3 py-1 rounded-full text-sm ml-3">تقنية</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">مقال مميز</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3 text-gray-800 dark:text-white hover:text-primary transition-colors">
+                            كيف سيغير الذكاء الاصطناعي مستقبل العمل في العالم العربي؟
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            نعيش اليوم ثورة حقيقية في عالم التكنولوجيا، حيث يعد الذكاء الاصطناعي بتغيير جذري في طبيعة العمل والمهن. في هذا المقال نستكشف التأثيرات المتوقعة على السوق العربي والفرص الجديدة التي ستظهر، بالإضافة إلى التحديات التي يجب الاستعداد لها...
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-4 space-x-reverse text-sm text-gray-500 dark:text-gray-400">
+                                <span class="flex items-center">
+                                    <i class="far fa-calendar ml-2"></i>
+                                    ١٨ يناير ٢٠٢٤
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="far fa-clock ml-2"></i>
+                                    ٧ دقائق قراءة
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="far fa-eye ml-2"></i>
+                                    ٢٣٤ مشاهدة
+                                </span>
+                            </div>
+                            <a href="#" class="text-primary hover:text-purple-600 font-semibold flex items-center">
+                                اقرأ المزيد
+                                <i class="fas fa-arrow-left mr-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regular Articles Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <article class="card-hover bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden fade-in">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-cyan-500 relative">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                                <i class="fas fa-user-graduate text-white text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <span class="inline-block bg-blue-500 text-white px-2 py-1 rounded text-xs mb-2">تطوير شخصي</span>
+                            <h5 class="text-lg font-bold mb-2 text-gray-800 dark:text-white hover:text-primary transition-colors">
+                                ٧ خطوات لبناء عادات صحية تدوم مدى الحياة
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                دليل شامل لبناء عادات إيجابية مستدامة والتخلص من العادات السيئة بطريقة علمية ومثبتة...
+                            </p>
+                            <div class="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
+                                <span>١٥ يناير ٢٠٢٤</span>
+                                <a href="#" class="text-primary hover:text-blue-600 font-semibold">اقرأ المقال</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-hover bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden fade-in">
+                        <div class="h-48 bg-gradient-to-r from-green-500 to-teal-500 relative">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                                <i class="fas fa-book-open text-white text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <span class="inline-block bg-green-500 text-white px-2 py-1 rounded text-xs mb-2">ثقافة</span>
+                            <h5 class="text-lg font-bold mb-2 text-gray-800 dark:text-white hover:text-primary transition-colors">
+                                لماذا تبقى القراءة أهم وسيلة لتطوير الفكر؟
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                في عصر السرعة والمعلومات الرقمية، تحتفظ القراءة بمكانتها الخاصة كأقوى أداة لتوسيع آفاقنا...
+                            </p>
+                            <div class="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
+                                <span>١٢ يناير ٢٠٢٤</span>
+                                <a href="#" class="text-primary hover:text-green-600 font-semibold">اقرأ المقال</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-hover bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden fade-in">
+                        <div class="h-48 bg-gradient-to-r from-red-500 to-pink-500 relative">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                                <i class="fas fa-plane text-white text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <span class="inline-block bg-red-500 text-white px-2 py-1 rounded text-xs mb-2">سفر</span>
+                            <h5 class="text-lg font-bold mb-2 text-gray-800 dark:text-white hover:text-primary transition-colors">
+                                رحلة استكشافية: أجمل ١٠ وجهات سياحية في الخليج العربي
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                دليل السفر الشامل لأروع المدن والمناطق التراثية والحديثة في دول الخليج العربي...
+                            </p>
+                            <div class="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
+                                <span>١٠ يناير ٢٠٢٤</span>
+                                <a href="#" class="text-primary hover:text-red-600 font-semibold">اقرأ المقال</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card-hover bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden fade-in">
+                        <div class="h-48 bg-gradient-to-r from-yellow-500 to-orange-500 relative">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                                <i class="fas fa-utensils text-white text-3xl"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <span class="inline-block bg-yellow-500 text-white px-2 py-1 rounded text-xs mb-2">طبخ</span>
+                            <h5 class="text-lg font-bold mb-2 text-gray-800 dark:text-white hover:text-primary transition-colors">
+                                وصفات الطبخ الصحي: ١٥ وجبة لذيذة في ٣٠ دقيقة
+                            </h5>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed">
+                                مجموعة مختارة من الوصفات السريعة والصحية التي يمكن تحضيرها بسهولة في المنزل...
+                            </p>
+                            <div class="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
+                                <span>٨ يناير ٢٠٢٤</span>
+                                <a href="#" class="text-primary hover:text-yellow-600 font-semibold">اقرأ المقال</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center fade-in">
+                    <button class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-600 transition-all hover:transform hover:scale-105">
+                        <i class="fas fa-plus ml-2"></i>
+                        عرض المزيد من المقالات
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="space-y-6">
+                <!-- About Me -->
+                <div id="about" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
+                    <h4 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">
+                        <i class="fas fa-user text-primary ml-2"></i>
+                        نبذة عني
+                    </h4>
+                    <div class="text-center mb-4">
+                        <div class="w-20 h-20 bg-gradient-to-r from-primary to-purple-600 rounded-full mx-auto mb-3 flex items-center justify-center">
+                            <i class="fas fa-user text-white text-2xl"></i>
+                        </div>
+                        <h5 class="font-semibold text-gray-800 dark:text-white">أحمد محمد الطويل</h5>
+                        <p class="text-sm text-primary font-medium">كاتب ومطور محتوى رقمي</p>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                        مرحباً! أنا أحمد، شغوف بالتكنولوجيا والكتابة. أحب مشاركة الأفكار والتجارب في مجالات التقنية، التطوير الشخصي، والثقافة العربية. أهدف إلى تقديم محتوى مفيد وملهم للقارئ العربي.
+                    </p>
+                    <div class="flex justify-center space-x-3 space-x-reverse">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-blue-700 rounded-full flex items-center justify-center text-white hover:bg-blue-800 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div id="categories" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
+                    <h4 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">
+                        <i class="fas fa-folder text-primary ml-2"></i>
+                        أقسام المدونة
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="flex justify-between items-center text-gray-600 dark:text-gray-300 hover:text-primary transition-colors group">
+                            <span class="flex items-center">
+                                <i class="fas fa-microchip ml-2 text-primary"></i>
+                                التقنية والذكاء الاصطناعي
+                            </span>
+                            <span class="bg-primary text-white px-2 py-1 rounded text-xs group-hover:bg-purple-600">٣٨</span>
+                        </a></li>
+                        <li><a href="#" class="flex justify-between items-center text-gray-600 dark:text-gray-300 hover:text-primary transition-colors group">
+                            <span class="flex items-center">
+                                <i class="fas fa-chart-line ml-2 text-blue-500"></i>
+                                التطوير الشخصي
+                            </span>
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs group-hover:bg-blue-600">٢٥</span>
+                        </a></li>
+                        <li><a href="#" class="flex justify-between items-center text-gray-600 dark:text-gray-300 hover:text-primary transition-colors group">
+                            <span class="flex items-center">
+                                <i class="fas fa-book ml-2 text-green-500"></i>
+                                الثقافة والقراءة
+                            </span>
+                            <span class="bg-green-500 text-white px-2 py-1 rounded text-xs group-hover:bg-green-600">١٩</span>
+                        </a></li>
+                        <li><a href="#" class="flex justify-between items-center text-gray-600 dark:text-gray-300 hover:text-primary transition-colors group">
+                            <span class="flex items-center">
+                                <i class="fas fa-globe ml-2 text-red-500"></i>
+                                السفر والاستكشاف
+                            </span>
+                            <span class="bg-red-500 text-white px-2 py-1 rounded text-xs group-hover:bg-red-600">١٤</span>
+                        </a></li>
+                        <li><a href="#" class="flex justify-between items-center text-gray-600 dark:text-gray-300 hover:text-primary transition-colors group">
+                            <span class="flex items-center">
+                                <i class="fas fa-heart ml-2 text-pink-500"></i>
+                                نمط الحياة الصحي
+                            </span>
+                            <span class="bg-pink-500 text-white px-2 py-1 rounded text-xs group-hover:bg-pink-600">١٦</span>
+                        </a></li>
+                        <li><a href="#" class="flex justify-between items-center text-gray-600 dark:text-gray-300 hover:text-primary transition-colors group">
+                            <span class="flex items-center">
+                                <i class="fas fa-utensils ml-2 text-yellow-500"></i>
+                                الطبخ والوصفات
+                            </span>
+                            <span class="bg-yellow-500 text-white px-2 py-1 rounded text-xs group-hover:bg-yellow-600">١١</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- Popular Posts -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
+                    <h4 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">
+                        <i class="fas fa-fire text-orange-500 ml-2"></i>
+                        المقالات الأكثر قراءة
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <div class="w-16 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded flex-shrink-0 flex items-center justify-center">
+                                <i class="fas fa-robot text-white text-sm"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h6 class="text-sm font-semibold text-gray-800 dark:text-white hover:text-primary transition-colors cursor-pointer">
+                                    دليل المبتدئين للذكاء الاصطناعي
+                                </h6>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">٨٧٤ مشاهدة</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <div class="w-16 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded flex-shrink-0 flex items-center justify-center">
+                                <i class="fas fa-user-graduate text-white text-sm"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h6 class="text-sm font-semibold text-gray-800 dark:text-white hover:text-primary transition-colors cursor-pointer">
+                                    ١٠ عادات للنجاح المهني
+                                </h6>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">٦٣٢ مشاهدة</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <div class="w-16 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded flex-shrink-0 flex items-center justify-center">
+                                <i class="fas fa-book-open text-white text-sm"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h6 class="text-sm font-semibold text-gray-800 dark:text-white hover:text-primary transition-colors cursor-pointer">
+                                    أفضل ١٠ كتب للقراءة هذا العام
+                                </h6>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">٥٩١ مشاهدة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="bg-primary rounded-xl shadow-lg p-6 text-white fade-in">
+                    <h4 class="text-xl font-bold mb-3">
+                        <i class="fas fa-envelope ml-2"></i>
+                        اشترك في النشرة البريدية
+                    </h4>
+                    <p class="text-sm mb-4 opacity-90">
+                        احصل على أحدث المقالات والأفكار مباشرة في بريدك الإلكتروني كل أسبوع
+                    </p>
+                    <form class="space-y-3" id="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required 
+                               class="w-full px-4 py-2 rounded-lg text-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-white">
+                        <button type="submit" class="w-full bg-white text-primary py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-paper-plane ml-2"></i>
+                            اشترك الآن مجاناً
+                        </button>
+                    </form>
+                    <p class="text-xs opacity-75 mt-2">
+                        <i class="fas fa-shield-alt ml-1"></i>
+                        نحترم خصوصيتك ولن نرسل رسائل مزعجة
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-100 dark:bg-gray-800 py-16 fade-in">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+                        <i class="fas fa-envelope text-primary ml-3"></i>
+                        تواصل معي
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                        هل لديك سؤال أو اقتراح؟ أو تريد التعاون في مشروع معين؟ لا تتردد في التواصل معي
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-6 text-gray-800 dark:text-white">معلومات التواصل</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 space-x-reverse p-4 bg-white dark:bg-gray-700 rounded-lg shadow-sm">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800 dark:text-white">البريد الإلكتروني</p>
+                                    <p class="text-gray-600 dark:text-gray-300">ahmed.mohamed@example.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 space-x-reverse p-4 bg-white dark:bg-gray-700 rounded-lg shadow-sm">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-whatsapp text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800 dark:text-white">واتساب</p>
+                                    <p class="text-gray-600 dark:text-gray-300">+966 50 123 4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 space-x-reverse p-4 bg-white dark:bg-gray-700 rounded-lg shadow-sm">
+                                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-twitter text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800 dark:text-white">تويتر</p>
+                                    <p class="text-gray-600 dark:text-gray-300">@ahmed_blog</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-4 space-x-reverse mt-6">
+                            <a href="#" class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all hover:scale-110" title="تويتر">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center text-white hover:bg-blue-800 transition-all hover:scale-110" title="لينكد إن">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white hover:bg-gray-900 transition-all hover:scale-110" title="جيت هاب">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition-all hover:scale-110" title="إنستغرام">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <form class="space-y-4" id="contact-form">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الاسم الكامل</label>
+                                <input type="text" required placeholder="اكتب اسمك هنا" 
+                                       class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white text-base focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">البريد الإلكتروني</label>
+                                <input type="email" required placeholder="your@email.com" 
+                                       class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white text-base focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الموضوع</label>
+                                <input type="text" required placeholder="موضوع الرسالة" 
+                                       class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white text-base focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الرسالة</label>
+                                <textarea required placeholder="اكتب رسالتك هنا..." rows="5" 
+                                          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white text-base focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-purple-600 transition-all hover:transform hover:scale-105">
+                                <i class="fas fa-paper-plane ml-2"></i>
+                                إرسال الرسالة
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 space-x-reverse mb-4">
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                            <i class="fas fa-pen-nib text-white"></i>
+                        </div>
+                        <h5 class="text-2xl font-bold">مدونة أحمد محمد</h5>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6 max-w-md">
+                        مدونة شخصية أشارك فيها أحدث الأفكار والتجارب في عالم التقنية، التطوير الشخصي، والثقافة العربية المعاصرة. هدفي هو تقديم محتوى مفيد وملهم للقارئ العربي.
+                    </p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h6 class="font-semibold mb-4 text-lg">روابط سريعة</h6>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <i class="fas fa-home ml-2 text-primary"></i>الرئيسية
+                        </a></li>
+                        <li><a href="#articles" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <i class="fas fa-newspaper ml-2 text-primary"></i>المقالات
+                        </a></li>
+                        <li><a href="#categories" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <i class="fas fa-folder ml-2 text-primary"></i>الأقسام
+                        </a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <i class="fas fa-user ml-2 text-primary"></i>نبذة عني
+                        </a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <i class="fas fa-envelope ml-2 text-primary"></i>تواصل معي
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h6 class="font-semibold mb-4 text-lg">أحدث المقالات</h6>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">كيف سيغير الذكاء الاصطناعي مستقبل العمل؟</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">٧ خطوات لبناء عادات صحية</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">لماذا تبقى القراءة مهمة؟</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">أجمل الوجهات في الخليج</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-300 text-sm mb-4 md:mb-0">
+                    © ٢٠٢٤ مدونة أحمد محمد. جميع الحقوق محفوظة.
+                </p>
+                <div class="flex space-x-4 space-x-reverse text-sm">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">سياسة الخصوصية</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">شروط الاستخدام</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 left-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-purple-600 transition-all opacity-0 pointer-events-none">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark mode functionality
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.className = 'fas fa-sun text-white';
+            } else {
+                themeIcon.className = 'fas fa-moon text-white';
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Reading progress bar
+        function updateReadingProgress() {
+            const article = document.querySelector('main');
+            if (!article) return;
+            
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+            
+            const progressBar = document.querySelector('.reading-progress');
+            if (progressBar) {
+                progressBar.style.width = (scrollPercent * 100) + '%';
+            }
+        }
+
+        window.addEventListener('scroll', updateReadingProgress);
+
+        // Stats counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.count-up');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 16);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    if (entry.target.querySelector('.count-up')) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Back to top functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.pointerEvents = 'auto';
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.pointerEvents = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Custom notification function
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 transition-all duration-300 ${
+                type === 'success' ? 'bg-green-500' : 'bg-red-500'
+            } text-white`;
+            
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} ml-2"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Newsletter subscription
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            
+            if (email) {
+                showNotification('تم الاشتراك بنجاح! شكراً لك على انضمامك لقائمتنا البريدية.', 'success');
+                this.querySelector('input[type="email"]').value = '';
+            }
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            showNotification('تم إرسال رسالتك بنجاح! سأرد عليك في أقرب وقت ممكن.', 'success');
+            this.reset();
+        });
+
+        // Enhanced scroll animations
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Initialize fade-in animations
+        window.addEventListener('load', () => {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, index * 100);
+            });
+        });
+    </script>
+
+    <!-- 
+    ===============================
+    Sitemap for SEO (HTML Comments)
+    ===============================
+    
+    Main Pages:
+    - Home (#home)
+    - Articles (#articles)
+    - Categories (#categories)
+    - About (#about)
+    - Contact (#contact)
+    
+    Article Categories:
+    - Technology & AI
+    - Personal Development
+    - Culture & Reading
+    - Travel & Exploration
+    - Healthy Lifestyle
+    - Cooking & Recipes
+    
+    Key Features:
+    - Responsive design
+    - Dark/Light mode
+    - Reading progress bar
+    - Mobile menu
+    - Newsletter subscription
+    - Contact form
+    - Social media links
+    - Back to top button
+    
+    ===============================
+    -->
+</body>
+</html>
