@@ -3,34 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدونة إبراهيم الأغبس - التقنية والتطوير الشخصي والثقافة</title>
+    <title>مدونة تيك عربي - التقنية والتطوير الشخصي والثقافة</title>
     <meta name="description" content="مدونة عربية شاملة تغطي أحدث تطورات التقنية والذكاء الاصطناعي، التطوير الشخصي، الثقافة، السفر، والطبخ">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'arabic': ['Tajawal', 'Segoe UI', 'Tahoma', 'Arial', 'sans-serif'],
+                        'arabic': ['Segoe UI', 'Tahoma', 'Arial', 'sans-serif'],
                     },
                     colors: {
                         primary: '#5D5CDE',
-                    },
-                    boxShadow: {
-                        'neon': '0 4px 24px 0 rgba(93,92,222,0.09), 0 2px 4px 0 rgba(93,92,222,0.07)',
                     }
                 }
             },
             darkMode: 'class'
         }
     </script>
-    <!-- Tajawal for Arabic, ultra-professional feel -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Tajawal', Segoe UI, Tahoma, Arial, sans-serif; }
         .line-clamp-2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -44,12 +36,11 @@
             overflow: hidden;
         }
         .animate-fade-in {
-            animation: fadeIn 0.85s cubic-bezier(.19,1,.22,1);
+            animation: fadeIn 0.5s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity:0; transform:translateY(32px);}
-            60% {opacity:.6;}
-            to { opacity:1; transform:translateY(0);}
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .gradient-text {
             background: linear-gradient(135deg, #5D5CDE, #7C3AED);
@@ -57,1032 +48,886 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .glass {
-            background: rgba(255,255,255,0.10);
-            backdrop-filter: blur(8px);
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+            background-size: 20px 20px;
         }
-        /* Category pill micro-anim */
-        .category-pill {
-            transition: transform 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s;
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .category-pill:hover, .category-pill.active {
-            transform: scale(1.08);
-            box-shadow: 0 2px 16px 0 rgba(93,92,222,0.13);
-            background: linear-gradient(90deg, #5D5CDE33, #7C3AED33);
+        .card-hover:hover {
+            transform: translateY(-8px);
         }
-        /* Modal animation */
-        .modal-anim-in {
-            animation: modalIn 0.35s cubic-bezier(.43,.15,.26,1.02);
-        }
-        .modal-anim-out {
-            animation: modalOut 0.22s cubic-bezier(.43,.15,.26,1.02);
-        }
-        @keyframes modalIn {
-            from {opacity:0; transform:scale(.92);}
-            to {opacity:1; transform:scale(1);}
-        }
-        @keyframes modalOut {
-            from {opacity:1; transform:scale(1);}
-            to {opacity:0; transform:scale(.94);}
-        }
-        /* Parallax Hero */
-        .hero-bg {
-            background: radial-gradient(ellipse at 80% 10%, rgba(253,224,71,0.24) 0, transparent 70%), radial-gradient(ellipse at 10% 80%, rgba(93,92,222,0.22) 0, transparent 70%), linear-gradient(135deg, #312e81 0%, #5D5CDE 70%);
-            background-blend-mode: lighten;
-        }
-        /* Scrollbar for modal */
-        .modal-scroll::-webkit-scrollbar { width: 7px; }
-        .modal-scroll::-webkit-scrollbar-thumb { background: #5D5CDE33; border-radius: 7px; }
-        .modal-scroll::-webkit-scrollbar-track { background: transparent; }
-        /* Focus outline */
-        button:focus, a:focus, input:focus {
-            outline: 2px solid #7C3AED;
-            outline-offset: 2px;
-        }
-        /* Prose dark mode */
-        .dark .prose a { color: #a5b4fc; }
-        .dark .prose strong { color: #facc15; }
     </style>
 </head>
-<body class="font-arabic bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 relative">
-
-<!-- Theme Switcher FAB -->
-<button id="theme-toggle" aria-label="تبديل الوضع الليلي" class="fixed z-50 bottom-5 left-5 w-12 h-12 bg-gradient-to-br from-purple-600 to-blue-600 shadow-neon rounded-full flex items-center justify-center text-white text-2xl transition-all duration-200 hover:scale-110 focus:outline-none">
-    <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
-</button>
-<!-- Scroll-to-top FAB -->
-<button id="scroll-top-btn" aria-label="العودة للأعلى" class="fixed z-50 bottom-20 left-5 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 shadow-neon rounded-full flex items-center justify-center text-white text-2xl opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 focus:outline-none">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
-</button>
-
-<!-- Navigation -->
-<nav class="bg-white/70 dark:bg-gray-800/80 glass border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-4">
-            <div class="flex items-center space-x-4 space-x-reverse">
-                <div class="flex items-center space-x-2 space-x-reverse">
-                    <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">ت</span>
-                    </div>
-                    <div>
-                        <h1 class="text-xl font-black gradient-text tracking-tight">إبراهيم الأغبس</h1>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">مدونة التقنية والحياة</p>
-                    </div>
-                </div>
-            </div>
-            <div class="hidden md:flex items-center space-x-6 space-x-reverse">
-                <button onclick="filterByCategory('all')" class="nav-link px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="all">جميع المقالات</button>
-                <button onclick="filterByCategory('tech')" class="nav-link px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="tech">تقنية</button>
-                <button onclick="filterByCategory('personal')" class="nav-link px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="personal">تطوير شخصي</button>
-                <button onclick="filterByCategory('culture')" class="nav-link px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="culture">ثقافة</button>
-                <button onclick="filterByCategory('travel')" class="nav-link px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="travel">سفر</button>
-                <button onclick="filterByCategory('cooking')" class="nav-link px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="cooking">طبخ</button>
-            </div>
-            <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="relative hidden sm:block">
-                    <input type="text" id="search-input" placeholder="ابحث في المقالات..." 
-                           class="w-64 px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200">
-                    <svg class="absolute left-3 top-2.5 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                </div>
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200" aria-label="القائمة الجانبية">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed right-0 top-0 w-80 max-w-full h-full bg-white dark:bg-gray-900 shadow-xl border-l border-gray-200 dark:border-gray-700 transform translate-x-full transition-transform duration-300 z-50">
-        <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
-            <div class="flex items-center space-x-2 space-x-reverse">
-                <div class="w-9 h-9 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
-                    <span class="text-white font-bold text-base">ت</span>
-                </div>
-                <h1 class="text-lg font-black gradient-text">إبراهيم الأغبس</h1>
-            </div>
-            <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200" aria-label="إغلاق القائمة الجانبية">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-        </div>
-        <div class="px-4 py-3 space-y-3">
-            <input type="text" id="mobile-search-input" placeholder="ابحث في المقالات..." 
-                   class="w-full px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-            <button onclick="filterByCategory('all');closeMobileMenu()" class="block w-full text-right px-3 py-2 rounded-lg text-base font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">جميع المقالات</button>
-            <button onclick="filterByCategory('tech');closeMobileMenu()" class="block w-full text-right px-3 py-2 rounded-lg text-base font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">تقنية</button>
-            <button onclick="filterByCategory('personal');closeMobileMenu()" class="block w-full text-right px-3 py-2 rounded-lg text-base font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">تطوير شخصي</button>
-            <button onclick="filterByCategory('culture');closeMobileMenu()" class="block w-full text-right px-3 py-2 rounded-lg text-base font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">ثقافة</button>
-            <button onclick="filterByCategory('travel');closeMobileMenu()" class="block w-full text-right px-3 py-2 rounded-lg text-base font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">سفر</button>
-            <button onclick="filterByCategory('cooking');closeMobileMenu()" class="block w-full text-right px-3 py-2 rounded-lg text-base font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">طبخ</button>
-        </div>
-    </div>
-    <div id="mobile-menu-backdrop" class="hidden fixed inset-0 bg-black bg-opacity-25 z-40"></div>
-</nav>
-
-<!-- Hero Section -->
-<section class="relative hero-bg">
-    <div class="absolute inset-0 bg-black/30"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div class="text-center">
-            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 animate-fade-in tracking-tight">
-                مرحباً بك في
-                <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">إبراهيم الأغبس</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in">
-                مدونة عربية شاملة تجمع بين أحدث التطورات التقنية والذكاء الاصطناعي، التطوير الشخصي، الثقافة، السفر، والطبخ
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse animate-fade-in">
-                <button onclick="filterByCategory('tech')" class="px-8 py-3 bg-white text-purple-900 font-black rounded-lg shadow-neon hover:bg-gray-100 transition-all duration-200 transform hover:scale-105">استكشف المقالات التقنية</button>
-                <button onclick="document.getElementById('about-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-3 border-2 border-white text-white font-black rounded-lg hover:bg-white hover:text-purple-900 transition-all duration-200">تعرف علينا أكثر</button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Stats Section -->
-<section class="py-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="space-y-2">
-                <div class="text-3xl md:text-4xl font-black text-purple-600 dark:text-purple-400" id="articles-count">0</div>
-                <div class="text-sm text-gray-600 dark:text-gray-400">مقال منشور</div>
-            </div>
-            <div class="space-y-2">
-                <div class="text-3xl md:text-4xl font-black text-blue-600 dark:text-blue-400" id="total-views">0</div>
-                <div class="text-sm text-gray-600 dark:text-gray-400">مشاهدة</div>
-            </div>
-            <div class="space-y-2">
-                <div class="text-3xl md:text-4xl font-black text-green-600 dark:text-green-400">6</div>
-                <div class="text-sm text-gray-600 dark:text-gray-400">أقسام متنوعة</div>
-            </div>
-            <div class="space-y-2">
-                <div class="text-3xl md:text-4xl font-black text-orange-600 dark:text-orange-400" id="avg-rating">0.0</div>
-                <div class="text-sm text-gray-600 dark:text-gray-400">متوسط التقييم</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Articles Section -->
-<section class="py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">أحدث المقالات</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">اكتشف مجموعة متنوعة من المقالات المفيدة والممتعة في مختلف المجالات</p>
-        </div>
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-3 mb-8">
-            <button onclick="filterByCategory('all')" class="filter-btn category-pill active px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200" data-category="all">
-                الكل (<span id="count-all">0</span>)
-            </button>
-            <button onclick="filterByCategory('tech')" class="filter-btn category-pill px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200" data-category="tech">
-                تقنية (<span id="count-tech">0</span>)
-            </button>
-            <button onclick="filterByCategory('personal')" class="filter-btn category-pill px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200" data-category="personal">
-                تطوير شخصي (<span id="count-personal">0</span>)
-            </button>
-            <button onclick="filterByCategory('culture')" class="filter-btn category-pill px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200" data-category="culture">
-                ثقافة (<span id="count-culture">0</span>)
-            </button>
-            <button onclick="filterByCategory('travel')" class="filter-btn category-pill px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200" data-category="travel">
-                سفر (<span id="count-travel">0</span>)
-            </button>
-            <button onclick="filterByCategory('cooking')" class="filter-btn category-pill px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200" data-category="cooking">
-                طبخ (<span id="count-cooking">0</span>)
-            </button>
-        </div>
-        <!-- Articles Grid -->
-        <div id="articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-        <!-- Load More Button -->
-        <div class="text-center mt-12">
-            <button id="load-more-btn" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg shadow-neon hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
-                تحميل المزيد
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section id="about-section" class="py-16 bg-gray-50 dark:bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
-                لماذا إبراهيم الأغبس؟
-            </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                نحن نؤمن بقوة المحتوى العربي عالي الجودة في تطوير مجتمعنا وإثراء معرفتنا
-            </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg card-hover glass border border-gray-100 dark:border-gray-800">
-                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-black text-gray-900 dark:text-white mb-3">محتوى متميز</h3>
-                <p class="text-gray-600 dark:text-gray-300">مقالات مدروسة ومفصلة تغطي أحدث التطورات بأسلوب واضح ومفهوم</p>
-            </div>
-            <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg card-hover glass border border-gray-100 dark:border-gray-800">
-                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-black text-gray-900 dark:text-white mb-3">تنوع المواضيع</h3>
-                <p class="text-gray-600 dark:text-gray-300">من التقنية إلى التطوير الشخصي والثقافة، نغطي كل ما يهمك في حياتك</p>
-            </div>
-            <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg card-hover glass border border-gray-100 dark:border-gray-800">
-                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-black text-gray-900 dark:text-white mb-3">مجتمع نشط</h3>
-                <p class="text-gray-600 dark:text-gray-300">انضم لمجتمع من المهتمين بالتعلم والتطوير المستمر</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-gray-900 dark:bg-gray-950 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="col-span-1 md:col-span-2">
-                <div class="flex items-center space-x-2 space-x-reverse mb-4">
-                    <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">ت</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-black">إبراهيم الأغبس</h3>
-                        <p class="text-sm text-gray-400 font-medium">مدونة التقنية والحياة</p>
-                    </div>
-                </div>
-                <p class="text-gray-300 leading-relaxed mb-6">
-                    مدونة عربية تهدف إلى نشر المعرفة والثقافة التقنية، وتقديم محتوى مفيد ومتنوع يساعد على التطوير والنمو الشخصي.
-                </p>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold mb-4">الأقسام</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" onclick="filterByCategory('tech')" class="text-gray-400 hover:text-white transition-colors duration-200">التقنية والذكاء الاصطناعي</a></li>
-                    <li><a href="#" onclick="filterByCategory('personal')" class="text-gray-400 hover:text-white transition-colors duration-200">التطوير الشخصي</a></li>
-                    <li><a href="#" onclick="filterByCategory('culture')" class="text-gray-400 hover:text-white transition-colors duration-200">الثقافة والقراءة</a></li>
-                    <li><a href="#" onclick="filterByCategory('travel')" class="text-gray-400 hover:text-white transition-colors duration-200">السفر والاستكشاف</a></li>
-                    <li><a href="#" onclick="filterByCategory('cooking')" class="text-gray-400 hover:text-white transition-colors duration-200">الطبخ والتغذية</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-lg font-semibold mb-4">روابط مفيدة</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">من نحن</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">اتصل بنا</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">سياسة الخصوصية</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">الشروط والأحكام</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-            <p class="text-gray-400">&copy; 2024 إبراهيم الأغبس. جميع الحقوق محفوظة.</p>
-        </div>
-    </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/marked@5.1.1/marked.min.js"></script>
-<script>
-/* ---- Parallax Hero ---- */
-window.addEventListener('mousemove', e => {
-    const hero = document.querySelector('.hero-bg');
-    if (!hero) return;
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    hero.style.backgroundPosition = `${80 + x*10}% ${10 + y*10}%`;
-});
-
-/* ---- Article Data ---- */
-const articlesData = [
-    {
-        id: '1',
-        title: 'مستقبل الذكاء الاصطناعي في التعليم العربي',
-        content: 'استكشاف كيفية تأثير تقنيات الذكاء الاصطناعي على منظومة التعليم في العالم العربي، والتحديات والفرص المتاحة لتطوير التعليم الرقمي باللغة العربية.',
-        category: 'tech',
-        author: 'إبراهيم الأغبس',
-        date: '2024-01-15',
-        readTime: 8,
-        views: 1250,
-        rating: 4.8,
-        comments: 23,
-        tags: ['ذكاء اصطناعي', 'تعليم', 'تقنية', 'مستقبل'],
-        featured: true,
-        hasFullContent: true,
-        fullContent: `# مستقبل الذكاء الاصطناعي في التعليم العربي
-
-## مقدمة
-
-يشهد العالم تطوراً متسارعاً في مجال الذكاء الاصطناعي، وهذا التطور يفتح آفاقاً جديدة في قطاع التعليم. في هذا المقال، سنستكشف كيف يمكن للذكاء الاصطناعي أن يثور منظومة التعليم في العالم العربي.
-
-## التحديات الحالية في التعليم العربي
-
-- **نقص في الموارد التعليمية** باللغة العربية
-- **صعوبة الوصول** للتعليم عالي الجودة في المناطق النائية
-- **الحاجة لتخصيص** التعليم حسب قدرات كل طالب
-
-## الفرص المتاحة
-
-### 1. التعلم الشخصي
-يمكن للذكاء الاصطناعي تحليل أسلوب تعلم كل طالب وتقديم محتوى مخصص يناسب قدراته واهتماماته.
-
-### 2. المساعدين الافتراضيين
-تطوير مساعدين ذكيين يتحدثون العربية ويمكنهم الإجابة على أسئلة الطلاب على مدار الساعة.
-
-### 3. التقييم الذكي
-استخدام التحليل التنبؤي لتحديد نقاط القوة والضعف لدى الطلاب وتقديم خطط تحسين شخصية.
-
-## التطبيقات العملية
-
-- **منصات التعلم التفاعلية** التي تتكيف مع مستوى الطالب
-- **أنظمة ترجمة متطورة** لإتاحة المحتوى العالمي باللغة العربية
-- **برامج محاكاة** للتجارب العلمية والتدريب المهني
-
-## الخلاصة
-
-الذكاء الاصطناعي ليس مجرد تقنية جديدة، بل هو أداة قوية يمكنها تحويل التعليم العربي إلى نظام أكثر فعالية وإنصافاً وتخصيصاً. المطلوب الآن هو استثمار حكيم وتخطيط محكم لضمان الاستفادة القصوى من هذه التقنيات.`
-    },
-    {
-        id: '2',
-        title: 'كيفية بناء عادات إيجابية تستمر مدى الحياة',
-        content: 'دليل شامل لفهم علم بناء العادات وتطبيق استراتيجيات عملية لتكوين عادات إيجابية والتخلص من العادات السيئة بطريقة علمية ومؤثرة.',
-        category: 'personal',
-        author: 'إبراهيم الأغبس',
-        date: '2024-01-12',
-        readTime: 6,
-        views: 2100,
-        rating: 4.9,
-        comments: 45,
-        tags: ['تطوير شخصي', 'عادات', 'إنتاجية', 'نمو'],
-        featured: false,
-        hasFullContent: true,
-        fullContent: `# كيفية بناء عادات إيجابية تستمر مدى الحياة
-
-## فهم علم العادات
-
-العادة هي سلوك نقوم به تلقائياً دون تفكير واعي. وفقاً للدراسات، **40% من أفعالنا اليومية** هي عادات وليست قرارات واعية.
-
-## دورة العادة الأساسية
-
-### 1. المحفز (Cue)
-العامل الذي يشير لدماغك لبدء العادة
-
-### 2. الروتين (Routine)  
-السلوك نفسه الذي تريد تكوينه
-
-### 3. المكافأة (Reward)
-الفائدة التي تحصل عليها من أداء العادة
-
-## استراتيجيات بناء العادات الجديدة
-
-### قاعدة الـ 2%
-ابدأ بتحسين صغير جداً (2% يومياً) بدلاً من تغييرات جذرية
-
-### تقنية التكديس
-اربط العادة الجديدة بعادة موجودة بالفعل
-
-**مثال:** "بعد أن أشرب قهوة الصباح، سأقرأ 5 صفحات من كتاب"
-
-### قانون البيئة
-اجعل العادة الجيدة واضحة ومرئية، والعادة السيئة مخفية وصعبة
-
-## خطة عملية للـ 30 يوم الأولى
-
-**الأسبوع الأول:** ركز على الاتساق وليس الكمال
-**الأسبوع الثاني:** زد الصعوبة تدريجياً  
-**الأسبوع الثالث:** تعامل مع التحديات والانتكاسات
-**الأسبوع الرابع:** قيّم التقدم واضبط المسار
-
-## أمثلة عملية
-
-- **عادة القراءة:** اقرأ صفحة واحدة قبل النوم
-- **عادة الرياضة:** اخصص 10 دقائق للحركة عند الاستيقاظ  
-- **عادة التأمل:** تنفس بعمق لمدة دقيقتين بعد كل وجبة
-
-## الخلاصة
-
-بناء العادات الإيجابية يحتاج صبر والتزام، لكن التأثير التراكمي هائل. ابدأ صغيراً، كن متسقاً، وثق في العملية.`
-    },
-    {
-        id: '3',
-        title: 'رحلة استكشاف المغرب: من مراكش إلى الصحراء',
-        content: 'تجربة سفر ممتعة عبر أجمل مدن المغرب، من أسواق مراكش التاريخية إلى كثبان الصحراء الذهبية، مع نصائح عملية للمسافرين العرب.',
-        category: 'travel',
-        author: 'إبراهيم الأغبس',
-        date: '2024-01-10',
-        readTime: 7,
-        views: 1800,
-        rating: 4.7,
-        comments: 31,
-        tags: ['سفر', 'المغرب', 'مراكش', 'صحراء', 'ثقافة'],
-        featured: true,
-        hasFullContent: false
-    },
-    {
-        id: '4',
-        title: 'فن الطبخ المغربي: الطاجين الأصيل خطوة بخطوة',
-        content: 'تعلم كيفية إعداد الطاجين المغربي الأصيل بطريقة تقليدية، مع أسرار النكهات والتوابل التي تجعل الطبق لذيذاً لا يقاوم.',
-        category: 'cooking',
-        author: 'إبراهيم الأغبس',
-        date: '2024-01-08',
-        readTime: 5,
-        views: 3200,
-        rating: 4.8,
-        comments: 67,
-        tags: ['طبخ', 'طاجين', 'مغربي', 'وصفات', 'تقليدي'],
-        featured: false,
-        hasFullContent: true,
-        fullContent: `# فن الطبخ المغربي: الطاجين الأصيل خطوة بخطوة
-
-## مقدمة
-
-الطاجين هو رمز من رموز المطبخ المغربي العريق. هذا الطبق التقليدي الذي يحمل في طياته تاريخاً عريقاً من النكهات والتوابل الأصيلة.
-
-## المكونات الأساسية
-
-### اللحم (1 كيلو)
-- لحم ضأن أو دجاج مقطع قطع متوسطة
-- يفضل اللحم مع العظم للنكهة
-
-### الخضروات
-- 2 حبة بصل مقطعة شرائح
-- 3 حبات جزر مقطعة دوائر سميكة  
-- 2 حبة بطاطس مقطعة أرباع
-- 200 غرام من الزيتون الأخضر
-
-### التوابل المغربية
-- ملعقة صغيرة **رأس الحانوت** (خلطة التوابل المغربية)
-- نصف ملعقة صغيرة زنجبيل مطحون
-- نصف ملعقة صغيرة قرفة
-- رشة زعفران حقيقي
-- ملح وفلفل أسود
-
-## طريقة التحضير
-
-### الخطوة الأولى: تحضير اللحم
-1. اغسل قطع اللحم جيداً وتبلها بالملح والفلفل
-2. اتركها ترتاح لمدة 30 دقيقة
-
-### الخطوة الثانية: الطبخ البطيء
-1. ضع إناء الطاجين على نار متوسطة
-2. أضف زيت الزيتون واتركه يسخن
-3. حمر قطع اللحم من جميع الجهات
-4. أضف البصل واتركه ينذبل
-
-### الخطوة الثالثة: إضافة التوابل
-1. أضف جميع التوابل وحرك لدقيقتين
-2. أضف كوب من الماء المغلي
-3. غطي الإناء واتركه ينضج لمدة ساعة
-
-### الخطوة الرابعة: إضافة الخضروات
-1. أضف الجزر والبطاطس
-2. اتركه ينضج لـ 30 دقيقة إضافية
-3. أضف الزيتون في آخر 10 دقائق
-
-## نصائح الطهي الاحترافية
-
-- **استخدم إناء الطاجين الطيني** للحصول على النكهة الأصيلة
-- **لا تحرك الطعام كثيراً** دعه ينضج بهدوء
-- **تذوق واضبط التوابل** حسب الذوق الشخصي
-
-## التقديم التقليدي
-
-يُقدم الطاجين ساخناً مع:
-- **الخبز المغربي** (الخبز المدور)
-- **سلطة مغربية** بالطماطم والخيار
-- **الشاي المغربي بالنعناع** كمشروب مرافق
-
-## الخلاصة
-
-الطاجين المغربي ليس مجرد وجبة، بل تجربة ثقافية كاملة. بالصبر والتوابل الصحيحة، ستحصل على طبق يحمل كل نكهات المغرب الأصيلة.`
-    },
-    {
-        id: '5',
-        title: 'تأثير القراءة على تطوير الشخصية والذكاء',
-        content: 'دراسة معمقة حول الفوائد العلمية للقراءة وتأثيرها على الدماغ والشخصية، مع استراتيجيات عملية لبناء عادة القراءة اليومية.',
-        category: 'culture',
-        author: 'إبراهيم الأغبس',
-        date: '2024-01-05',
-        readTime: 9,
-        views: 1650,
-        rating: 4.9,
-        comments: 29,
-        tags: ['قراءة', 'ثقافة', 'تطوير', 'ذكاء', 'كتب'],
-        featured: false,
-        hasFullContent: true,
-        fullContent: `# تأثير القراءة على تطوير الشخصية والذكاء
-
-## الفوائد العلمية للقراءة
-
-### تحسين وظائف الدماغ
-الدراسات العلمية تؤكد أن القراءة تنشط مناطق متعددة في الدماغ، مما يحسن:
-- **الذاكرة طويلة المدى**
-- **التركيز والانتباه**  
-- **مهارات التحليل النقدي**
-
-### تطوير الذكاء العاطفي
-قراءة الأدب والروايات تساعد على:
-- فهم مشاعر الآخرين بصورة أفضل
-- تطوير مهارات التعاطف
-- زيادة الوعي الذاتي
-
-## أنواع القراءة وفوائدها
-
-### القراءة التخصصية
-- **تطوير الخبرة** في مجال معين
-- **بناء المهارات المهنية**
-- **مواكبة التطورات** في التخصص
-
-### القراءة الترفيهية  
-- **تخفيف التوتر والضغط**
-- **تحفيز الخيال والإبداع**
-- **تحسين نوعية النوم**
-
-### القراءة التنموية
-- **تطوير المهارات الشخصية**
-- **بناء عادات إيجابية**  
-- **زيادة الثقة بالنفس**
-
-## استراتيجيات بناء عادة القراءة
-
-### ابدأ بـ 15 دقيقة يومياً
-- اختر وقتاً ثابتاً (صباحاً أو مساءً)
-- اقرأ في مكان هادئ ومريح
-- لا تضغط على نفسك في البداية
-
-### اختر كتباً تحبها
-- ابدأ بالمواضيع التي تثير اهتمامك
-- نوع بين الأنواع الأدبية
-- لا تتردد في ترك كتاب لا يعجبك
-
-### انضم لنادي قراءة
-- شارك آرائك مع القراء الآخرين
-- احصل على توصيات جديدة
-- اجعل القراءة نشاطاً اجتماعياً
-
-## نصائح للقراءة الفعالة
-
-### قبل القراءة
-- **اقرأ الملخص** والفهرس
-- **حدد هدفك** من الكتاب
-- **خطط لعدد الصفحات** اليومية
-
-### أثناء القراءة
-- **خذ ملاحظات** للنقاط المهمة
-- **اطرح أسئلة** على النص
-- **اربط المعلومات** بخبراتك الشخصية
-
-### بعد القراءة
-- **لخص** ما تعلمته
-- **طبق** الأفكار في حياتك
-- **شارك** المعرفة مع الآخرين
-
-## كتب ننصح بقراءتها
-
-### في التطوير الشخصي
-- "العادات السبع للناس الأكثر فعالية" - ستيفن كوفي
-- "فكر تصبح غنياً" - نابليون هيل
-
-### في الأدب العربي
-- "مئة عام من العزلة" - غابرييل غارسيا ماركيز  
-- "الأسود يليق بك" - أحلام مستغانمي
-
-### في العلوم والتقنية
-- "الذكاء الاصطناعي" - كاي فو لي
-- "سابيينس: تاريخ موجز للجنس البشري" - يوفال نوح هراري
-
-## الخلاصة
-
-القراءة ليست مجرد هواية، بل استثمار في تطوير العقل والشخصية. كل كتاب تقرأه يضيف طبقة جديدة لفهمك للعالم ولنفسك.`
-    },
-    {
-        id: '6',
-        title: 'ثورة الحوسبة الكمية: هل ستغير مستقبل التقنية؟',
-        content: 'نظرة شاملة على تقنية الحوسبة الكمية وإمكانياتها الهائلة في حل المشاكل المعقدة، والتحديات التي تواجه تطويرها وتطبيقها.',
-        category: 'tech',
-        author: 'إبراهيم الأغبس',
-        date: '2024-01-03',
-        readTime: 10,
-        views: 980,
-        rating: 4.6,
-        comments: 15,
-        tags: ['حوسبة كمية', 'تقنية', 'مستقبل', 'ابتكار'],
-        featured: false,
-        hasFullContent: false
-    },
-    {
-        id: '7',
-        title: 'فن إدارة الوقت: تقنيات مثبتة علمياً',
-        content: 'استراتيجيات عملية لإدارة الوقت بفعالية أكبر، بناءً على أحدث الأبحاث في علم النفس والإنتاجية، مع تطبيقات عملية يومية.',
-        category: 'personal',
-        author: 'إبراهيم الأغبس',
-        date: '2024-01-01',
-        readTime: 6,
-        views: 2800,
-        rating: 4.8,
-        comments: 52,
-        tags: ['إدارة وقت', 'إنتاجية', 'تنظيم', 'تطوير شخصي'],
-        featured: true,
-        hasFullContent: false
-    },
-    {
-        id: '8',
-        title: 'تجربة السفر إلى اليابان: دليل المسافر العربي',
-        content: 'رحلة مفصلة عبر اليابان من طوكيو إلى كيوتو، مع نصائح عملية حول الثقافة اليابانية، التأشيرات، الطعام، والأماكن السياحية المميزة.',
-        category: 'travel',
-        author: 'إبراهيم الأغبس',
-        date: '2023-12-28',
-        readTime: 8,
-        views: 1420,
-        rating: 4.7,
-        comments: 26,
-        tags: ['اليابان', 'سفر', 'ثقافة', 'سياحة', 'آسيا'],
-        featured: false,
-        hasFullContent: false
-    },
-    {
-        id: '9',
-        title: 'أسرار المطبخ الشامي: الكبة اللبنانية الأصيلة',
-        content: 'طريقة إعداد الكبة اللبنانية التقليدية بخطوات مفصلة، مع أسرار الحشو والعجينة والقلي للحصول على كبة مقرمشة من الخارج وطرية من الداخل.',
-        category: 'cooking',
-        author: 'إبراهيم الأغبس',
-        date: '2023-12-25',
-        readTime: 7,
-        views: 2150,
-        rating: 4.9,
-        comments: 38,
-        tags: ['كبة', 'لبناني', 'شامي', 'طبخ', 'تقليدي'],
-        featured: false,
-        hasFullContent: false
-    },
-    {
-        id: '10',
-        title: 'تاريخ الأدب العربي الحديث: من النهضة إلى المعاصرة',
-        content: 'رحلة عبر تطور الأدب العربي من عصر النهضة حتى اليوم، مع استعراض أهم الكتاب والحركات الأدبية التي شكلت الهوية الثقافية العربية.',
-        category: 'culture',
-        author: 'إبراهيم الأغبس',
-        date: '2023-12-22',
-        readTime: 12,
-        views: 890,
-        rating: 4.5,
-        comments: 19,
-        tags: ['أدب عربي', 'تاريخ', 'ثقافة', 'نهضة', 'معاصر'],
-        featured: false,
-        hasFullContent: false
-    },
-    {
-        id: '11',
-        title: 'الأمن السيبراني في عصر إنترنت الأشياء',
-        content: 'التحديات الأمنية الجديدة التي تفرضها أجهزة إنترنت الأشياء، وكيفية حماية خصوصيتنا وبياناتنا في عالم متصل بالكامل.',
-        category: 'tech',
-        author: 'إبراهيم الأغبس',
-        date: '2023-12-20',
-        readTime: 9,
-        views: 1100,
-        rating: 4.7,
-        comments: 21,
-        tags: ['أمن سيبراني', 'إنترنت الأشياء', 'خصوصية', 'حماية'],
-        featured: false,
-        hasFullContent: false
-    },
-    {
-        id: '12',
-        title: 'بناء الثقة بالنفس: دليل عملي للتطوير الذاتي',
-        content: 'استراتيجيات مثبتة لبناء الثقة بالنفس وتطوير صورة ذاتية إيجابية، مع تمارين عملية وتقنيات نفسية فعالة.',
-        category: 'personal',
-        author: 'إبراهيم الأغبس',
-        date: '2023-12-18',
-        readTime: 8,
-        views: 1950,
-        rating: 4.8,
-        comments: 35,
-        tags: ['ثقة بالنفس', 'تطوير ذاتي', 'علم نفس', 'شخصية'],
-        featured: true,
-        hasFullContent: false
-    }
-];
-
-/* ---- State Variables ---- */
-let currentFilter = 'all';
-let currentPage = 1;
-const articlesPerPage = 6;
-let filteredArticles = articlesData;
-
-/* ---- Theme Switcher ---- */
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-toggle-icon');
-
-// Detect initial theme
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement.classList.add('dark');
-}
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    if (event.matches) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
-});
-
-let theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-function setTheme(t) {
-    document.documentElement.classList.toggle('dark', t === 'dark');
-    themeIcon.textContent = t === 'dark' ? '☀️' : '🌙';
-    localStorage.setItem('theme', t);
-}
-themeToggle.onclick = function() {
-    theme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(theme);
-}
-setTheme(theme);
-
-/* ---- Scroll to top FAB ---- */
-const scrollTopBtn = document.getElementById('scroll-top-btn');
-window.addEventListener('scroll', () => {
-    if(window.scrollY > 600) {
-        scrollTopBtn.style.opacity = 1;
-        scrollTopBtn.style.pointerEvents = "auto";
-    } else {
-        scrollTopBtn.style.opacity = 0;
-        scrollTopBtn.style.pointerEvents = "none";
-    }
-});
-scrollTopBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
-
-/* ---- Mobile Menu Slide Animation ---- */
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
-document.getElementById('mobile-menu-button').onclick = function() {
-    mobileMenu.style.transform = 'translateX(0%)';
-    mobileBackdrop.classList.remove('hidden');
-}
-document.getElementById('mobile-menu-close').onclick = closeMobileMenu;
-mobileBackdrop.onclick = closeMobileMenu;
-function closeMobileMenu() {
-    mobileMenu.style.transform = 'translateX(100%)';
-    mobileBackdrop.classList.add('hidden');
-}
-
-/* ---- App Initialization ---- */
-document.addEventListener('DOMContentLoaded', function() {
-    updateStats();
-    updateCategoryCounts();
-    renderArticles(getArticlesToShow());
-    updateLoadMoreButton();
-    setupEventListeners();
-});
-
-function getCategoryName(category) {
-    const categories = { 'tech': 'تقنية', 'personal': 'تطوير شخصي', 'culture': 'ثقافة', 'travel': 'سفر', 'cooking': 'طبخ' };
-    return categories[category] || category;
-}
-
-function updateStats() {
-    const totalViews = articlesData.reduce((sum, a) => sum + a.views, 0);
-    const avgRating = articlesData.reduce((sum, a) => sum + a.rating, 0) / articlesData.length;
-    animateCounter('articles-count', articlesData.length);
-    animateCounter('total-views', totalViews);
-    animateCounter('avg-rating', avgRating, 1);
-}
-
-function animateCounter(elementId, target, decimals = 0) {
-    const element = document.getElementById(elementId);
-    const increment = target / 100;
-    let current = 0;
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) { current = target; clearInterval(timer);}
-        element.textContent = decimals > 0 ? current.toFixed(decimals) : Math.floor(current).toLocaleString();
-    }, 20);
-}
-
-function updateCategoryCounts() {
-    const categories = ['all', 'tech', 'personal', 'culture', 'travel', 'cooking'];
-    categories.forEach(category => {
-        const count = category === 'all' ? articlesData.length : articlesData.filter(a => a.category === category).length;
-        const element = document.getElementById(`count-${category}`);
-        if (element) element.textContent = count;
-    });
-}
-
-function filterByCategory(category) {
-    currentFilter = category;
-    currentPage = 1;
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`[data-category="${category}"]`).classList.add('active');
-    filteredArticles = category === 'all' ? articlesData : articlesData.filter(a => a.category === category);
-    renderArticles(getArticlesToShow());
-    updateLoadMoreButton();
-    closeMobileMenu();
-}
-
-function getArticlesToShow() {
-    const endIndex = currentPage * articlesPerPage;
-    return filteredArticles.slice(0, endIndex);
-}
-
-function renderArticles(articles) {
-    const container = document.getElementById('articles-container');
-    container.innerHTML = articles.map(article => `
-        <article class="bg-white dark:bg-gray-800 rounded-2xl shadow-neon overflow-hidden hover:shadow-2xl transition-all duration-300 group card-hover animate-fade-in relative border border-gray-100 dark:border-gray-800">
-            <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 relative overflow-hidden">
-                <div class="absolute inset-0 bg-black/20"></div>
-                <div class="absolute top-4 left-4">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold category-pill" style="background:rgba(255,255,255,0.88);color:#5D5CDE;">
-                        ${getCategoryName(article.category)}
-                    </span>
-                </div>
-                ${article.featured ? '<div class="absolute top-4 right-4"><span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-black bg-yellow-400 text-yellow-900 shadow">مميز</span></div>' : ''}
-                <div class="absolute bottom-4 left-4 right-4">
-                    <h3 class="text-white font-black text-lg leading-tight line-clamp-2 shadow">${article.title}</h3>
-                </div>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">${article.content}</p>
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 space-x-4 space-x-reverse">
-                        <span>${article.readTime} دقيقة</span>
-                        <span>${article.views.toLocaleString()} مشاهدة</span>
-                        <span>${article.date}</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-sm text-gray-500 dark:text-gray-400">⭐ ${article.rating}</span>
-                    </div>
-                </div>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    ${article.tags.slice(0, 3).map(tag => `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">${tag}</span>`).join('')}
-                    ${article.tags.length > 3 ? `<span class="text-xs text-gray-500 dark:text-gray-400">+${article.tags.length - 3} أخرى</span>` : ''}
-                </div>
-                <div class="flex items-center justify-between">
+<body class="font-arabic bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4 space-x-reverse">
                     <div class="flex items-center space-x-2 space-x-reverse">
-                        <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(article.author)}&background=5d5cde&color=fff&size=40" alt="avatar" class="w-8 h-8 rounded-full shadow-sm border-2 border-white dark:border-gray-700">
-                        <span class="text-sm text-gray-700 dark:text-gray-300 font-bold">${article.author}</span>
+                        <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">ت</span>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold gradient-text">تيك عربي</h1>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">مدونة التقنية والحياة</p>
+                        </div>
                     </div>
-                    <button onclick="openArticle('${article.id}')" class="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-black rounded-lg transition-colors duration-200 group-hover:bg-indigo-700 focus:outline-none shadow">
-                        اقرأ المقال
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6 space-x-reverse">
+                    <button onclick="filterByCategory('all')" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="all">
+                        جميع المقالات
+                    </button>
+                    <button onclick="filterByCategory('tech')" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="tech">
+                        تقنية
+                    </button>
+                    <button onclick="filterByCategory('personal')" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="personal">
+                        تطوير شخصي
+                    </button>
+                    <button onclick="filterByCategory('culture')" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="culture">
+                        ثقافة
+                    </button>
+                    <button onclick="filterByCategory('travel')" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="travel">
+                        سفر
+                    </button>
+                    <button onclick="filterByCategory('cooking')" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-700" data-category="cooking">
+                        طبخ
+                    </button>
+                </div>
+
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="search-input" placeholder="ابحث في المقالات..." 
+                               class="w-64 px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200">
+                        <svg class="absolute left-3 top-2.5 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
             </div>
-        </article>
-    `).join('');
-}
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+            <div class="px-4 py-3 space-y-2">
+                <div class="mb-3">
+                    <input type="text" id="mobile-search-input" placeholder="ابحث في المقالات..." 
+                           class="w-full px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                </div>
+                <button onclick="filterByCategory('all')" class="block w-full text-right px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">جميع المقالات</button>
+                <button onclick="filterByCategory('tech')" class="block w-full text-right px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">تقنية</button>
+                <button onclick="filterByCategory('personal')" class="block w-full text-right px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">تطوير شخصي</button>
+                <button onclick="filterByCategory('culture')" class="block w-full text-right px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">ثقافة</button>
+                <button onclick="filterByCategory('travel')" class="block w-full text-right px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">سفر</button>
+                <button onclick="filterByCategory('cooking')" class="block w-full text-right px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">طبخ</button>
+            </div>
+        </div>
+    </nav>
 
-function updateLoadMoreButton() {
-    const loadMoreBtn = document.getElementById('load-more-btn');
-    const totalArticles = filteredArticles.length;
-    const showingArticles = currentPage * articlesPerPage;
-    if (showingArticles >= totalArticles) {
-        loadMoreBtn.style.display = 'none';
-    } else {
-        loadMoreBtn.style.display = 'inline-block';
-        loadMoreBtn.textContent = `تحميل المزيد (${totalArticles - showingArticles} متبقي)`;
-    }
-}
-
-function loadMore() {
-    currentPage++;
-    renderArticles(getArticlesToShow());
-    updateLoadMoreButton();
-}
-
-function searchArticles(query) {
-    if (!query.trim()) {
-        filteredArticles = currentFilter === 'all' ? articlesData : articlesData.filter(article => article.category === currentFilter);
-    } else {
-        const baseArticles = currentFilter === 'all' ? articlesData : articlesData.filter(article => article.category === currentFilter);
-        filteredArticles = baseArticles.filter(article => 
-            article.title.toLowerCase().includes(query.toLowerCase()) ||
-            article.content.toLowerCase().includes(query.toLowerCase()) ||
-            article.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
-        );
-    }
-    currentPage = 1;
-    renderArticles(getArticlesToShow());
-    updateLoadMoreButton();
-}
-
-function setupEventListeners() {
-    document.getElementById('load-more-btn').addEventListener('click', loadMore);
-    [document.getElementById('search-input'), document.getElementById('mobile-search-input')].forEach(input => {
-        if(input) input.addEventListener('input', e => searchArticles(e.target.value));
-    });
-    // Category pill active style
-    const style = document.createElement('style');
-    style.textContent = `
-        .filter-btn { background: rgba(99,102,241,0.1); color: rgb(99,102,241); border: 1px solid transparent;}
-        .filter-btn:hover { background: rgba(99,102,241,0.2);}
-        .filter-btn.active { background: rgb(99,102,241); color: white;}
-        .dark .filter-btn { background: rgba(129,140,248,0.1); color: rgb(129,140,248);}
-        .dark .filter-btn:hover { background: rgba(129,140,248,0.2);}
-        .dark .filter-btn.active { background: rgb(129,140,248); color: rgb(17,24,39);}
-    `; document.head.appendChild(style);
-}
-
-/* ---- Article Modal with Animation & Progress ---- */
-function openArticle(articleId) {
-    const article = articlesData.find(a => a.id === articleId);
-    if (!article) return;
-    // Modal structure
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 overflow-y-auto';
-    modal.innerHTML = `
-      <div class="relative bg-white dark:bg-gray-800 max-w-4xl w-full mx-4 my-8 rounded-2xl shadow-2xl overflow-hidden max-h-screen flex flex-col modal-anim-in glass border border-gray-100 dark:border-gray-700">
-        <!-- Progress Bar -->
-        <div id="modal-progress" class="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-yellow-400 to-blue-500" style="width:0%;transition:width .2s;"></div>
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 flex justify-between items-start">
-            <div class="flex-1">
-                <h1 class="text-2xl font-black mb-2">${article.title}</h1>
-                <div class="flex items-center text-sm opacity-90 space-x-4 space-x-reverse">
-                    <span>${article.readTime} دقيقة</span>
-                    <span>${article.date}</span>
-                    <span>بواسطة ${article.author}</span>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 hero-pattern">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
+                    مرحباً بك في
+                    <span class="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">تيك عربي</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in">
+                    مدونة عربية شاملة تجمع بين أحدث التطورات التقنية والذكاء الاصطناعي، التطوير الشخصي، الثقافة، السفر، والطبخ
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse animate-fade-in">
+                    <button onclick="filterByCategory('tech')" class="px-8 py-3 bg-white text-purple-900 font-bold rounded-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105">
+                        استكشف المقالات التقنية
+                    </button>
+                    <button onclick="document.getElementById('about-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-purple-900 transition-all duration-200">
+                        تعرف علينا أكثر
+                    </button>
                 </div>
             </div>
-            <button onclick="closeArticle()" class="text-white hover:text-gray-300 transition-colors duration-200 p-2" aria-label="إغلاق">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
         </div>
-        <!-- Content -->
-        <div class="flex-1 overflow-y-auto p-6 modal-scroll" id="modal-content">
-            <div class="prose prose-lg max-w-none dark:prose-invert">
-                ${article.hasFullContent && article.fullContent ? 
-                    marked.parse(article.fullContent) : 
-                    `<p class="text-lg leading-relaxed mb-6">${article.content}</p>
-                        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
-                            <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-200 mb-2">المحتوى الكامل قريباً</h3>
-                            <p class="text-blue-600 dark:text-blue-300">نعمل على إضافة المحتوى الكامل لهذا المقال. ابق متابعاً!</p>
-                        </div>`
-                }
-            </div>
-        </div>
-        <!-- Footer -->
-        <div class="bg-gray-50 dark:bg-gray-700 p-6 border-t border-gray-200 dark:border-gray-600">
-            <div class="flex flex-wrap gap-2 mb-4">
-                ${article.tags.map(tag => `<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200">${tag}</span>`).join('')}
-            </div>
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2 space-x-reverse text-sm text-gray-600 dark:text-gray-400">
-                    <span>${article.views.toLocaleString()} مشاهدة</span>
-                    <span>${article.comments} تعليق</span>
-                    <span>⭐ ${article.rating}</span>
-                </div>
-                <button onclick="closeArticle()" class="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white font-black rounded-lg transition-colors duration-200">إغلاق</button>
-            </div>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-    document.body.style.overflow = 'hidden';
-    // Animate progress bar on scroll
-    const modalContent = modal.querySelector('#modal-content');
-    const modalProgress = modal.querySelector('#modal-progress');
-    modalContent.onscroll = () => {
-        const scrollTop = modalContent.scrollTop;
-        const scrollHeight = modalContent.scrollHeight - modalContent.clientHeight;
-        const percent = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100));
-        modalProgress.style.width = percent + '%';
-    };
-    // Click outside to close
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeArticle();
-    });
-    // Escape key to close
-    document.addEventListener('keydown', function escHandler(e) {
-        if (e.key === 'Escape') { closeArticle(); document.removeEventListener('keydown', escHandler);}
-    });
-}
+    </section>
 
-function closeArticle() {
-    const modal = document.querySelector('.fixed.inset-0.bg-black.bg-opacity-75');
-    if (modal) {
-        const modalBox = modal.querySelector('.modal-anim-in');
-        if (modalBox) {
-            modalBox.classList.remove('modal-anim-in');
-            modalBox.classList.add('modal-anim-out');
-            setTimeout(() => { modal.remove(); document.body.style.overflow = ''; }, 180);
+    <!-- Stats Section -->
+    <section class="py-16 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="space-y-2">
+                    <div class="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400" id="articles-count">0</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">مقال منشور</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400" id="total-views">0</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">مشاهدة</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-3xl md:text-4xl font-bold text-green-600 dark:text-green-400">6</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">أقسام متنوعة</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400" id="avg-rating">0.0</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">متوسط التقييم</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    أحدث المقالات
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    اكتشف مجموعة متنوعة من المقالات المفيدة والممتعة في مختلف المجالات
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <button onclick="filterByCategory('all')" class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-all duration-200" data-category="all">
+                    الكل (<span id="count-all">0</span>)
+                </button>
+                <button onclick="filterByCategory('tech')" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-200" data-category="tech">
+                    تقنية (<span id="count-tech">0</span>)
+                </button>
+                <button onclick="filterByCategory('personal')" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-200" data-category="personal">
+                    تطوير شخصي (<span id="count-personal">0</span>)
+                </button>
+                <button onclick="filterByCategory('culture')" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-200" data-category="culture">
+                    ثقافة (<span id="count-culture">0</span>)
+                </button>
+                <button onclick="filterByCategory('travel')" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-200" data-category="travel">
+                    سفر (<span id="count-travel">0</span>)
+                </button>
+                <button onclick="filterByCategory('cooking')" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-200" data-category="cooking">
+                    طبخ (<span id="count-cooking">0</span>)
+                </button>
+            </div>
+
+            <!-- Articles Grid -->
+            <div id="articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Articles will be rendered here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="load-more-btn" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                    تحميل المزيد
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about-section" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    لماذا تيك عربي؟
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    نحن نؤمن بقوة المحتوى العربي عالي الجودة في تطوير مجتمعنا وإثراء معرفتنا
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">محتوى متميز</h3>
+                    <p class="text-gray-600 dark:text-gray-300">مقالات مدروسة ومفصلة تغطي أحدث التطورات بأسلوب واضح ومفهوم</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">تنوع المواضيع</h3>
+                    <p class="text-gray-600 dark:text-gray-300">من التقنية إلى التطوير الشخصي والثقافة، نغطي كل ما يهمك في حياتك</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow-lg card-hover">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">مجتمع نشط</h3>
+                    <p class="text-gray-600 dark:text-gray-300">انضم لمجتمع من المهتمين بالتعلم والتطوير المستمر</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-gray-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 space-x-reverse mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">ت</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">تيك عربي</h3>
+                            <p class="text-sm text-gray-400">مدونة التقنية والحياة</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        مدونة عربية تهدف إلى نشر المعرفة والثقافة التقنية، وتقديم محتوى مفيد ومتنوع يساعد على التطوير والنمو الشخصي.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">الأقسام</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="filterByCategory('tech')" class="text-gray-400 hover:text-white transition-colors duration-200">التقنية والذكاء الاصطناعي</a></li>
+                        <li><a href="#" onclick="filterByCategory('personal')" class="text-gray-400 hover:text-white transition-colors duration-200">التطوير الشخصي</a></li>
+                        <li><a href="#" onclick="filterByCategory('culture')" class="text-gray-400 hover:text-white transition-colors duration-200">الثقافة والقراءة</a></li>
+                        <li><a href="#" onclick="filterByCategory('travel')" class="text-gray-400 hover:text-white transition-colors duration-200">السفر والاستكشاف</a></li>
+                        <li><a href="#" onclick="filterByCategory('cooking')" class="text-gray-400 hover:text-white transition-colors duration-200">الطبخ والتغذية</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">روابط مفيدة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">من نحن</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">اتصل بنا</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">الشروط والأحكام</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 تيك عربي. جميع الحقوق محفوظة.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@5.1.1/marked.min.js"></script>
+    <script>
+    // Enhanced articles data with full content for tech articles
+    const articlesData = [
+        // تقنية وذكاء اصطناعي - محتوى كامل
+        {
+            id: "ai-generative-guide",
+            title: "دليل شامل للذكاء الاصطناعي التوليدي: فهم ChatGPT وGemini وClaude",
+            content: "الذكاء الاصطناعي التوليدي يمثل نقلة نوعية في تكنولوجيا المعلومات. في هذا المقال نستكشف كيفية عمل النماذج اللغوية الكبيرة مثل ChatGPT من OpenAI، وGemini من Google، وClaude من Anthropic.",
+            fullContent: `# دليل شامل للذكاء الاصطناعي التوليدي
+
+## مقدمة
+
+الذكاء الاصطناعي التوليدي (Generative AI) يمثل ثورة حقيقية في عالم التكنولوجيا. هذه التقنية التي تمكن الآلات من إنشاء محتوى جديد - سواء كان نصوص أو صور أو موسيقى أو حتى كود برمجي - تفتح آفاقاً لا محدودة أمام الإبداع والإنتاجية.
+
+## ما هو الذكاء الاصطناعي التوليدي؟
+
+الذكاء الاصطناعي التوليدي هو فرع من فروع الذكاء الاصطناعي يركز على إنشاء محتوى جديد بناءً على البيانات التي تم تدريب النموذج عليها. على عكس النماذج التقليدية التي تقوم بالتصنيف أو التنبؤ، تقوم النماذج التوليدية بإنتاج محتوى أصلي.
+
+## أشهر النماذج اللغوية الكبيرة
+
+### 1. ChatGPT (OpenAI)
+
+**نظرة عامة:**
+ChatGPT هو نموذج لغوي كبير تم تطويره من قبل OpenAI، مبني على بنية GPT (Generative Pre-trained Transformer).
+
+**الإصدارات المتاحة:**
+- **GPT-3.5**: النسخة المجانية، سريعة وفعالة للمهام البسيطة
+- **GPT-4**: النسخة المدفوعة، أكثر دقة وقدرة على التفكير المعقد
+- **GPT-4 Turbo**: نسخة محسنة بسياق أكبر وتكلفة أقل
+
+**أفضل الاستخدامات:**
+- الكتابة الإبداعية والمحتوى
+- البرمجة ومراجعة الكود
+- الترجمة والتلخيص
+- التعليم والشرح
+- العصف الذهني وتوليد الأفكار
+
+### 2. Gemini (Google)
+
+**نظرة عامة:**
+Gemini هو نموذج الذكاء الاصطناعي من Google، مصمم ليكون متعدد الوسائط منذ البداية.
+
+**أفضل الاستخدامات:**
+- البحث والحصول على معلومات حديثة
+- تحليل الصور والمستندات
+- التخطيط والتنظيم
+- المهام التي تتطلب معلومات فورية
+
+### 3. Claude (Anthropic)
+
+**نظرة عامة:**
+Claude هو نموذج لغوي تم تطويره من قبل Anthropic، مع التركيز على الأمان والمساعدة المفيدة.
+
+**أفضل الاستخدامات:**
+- تحليل المستندات الطويلة
+- المهام الأكاديمية والبحثية
+- المراجعة والتدقيق
+- التفكير النقدي والتحليل
+
+## كتابة Prompts فعالة
+
+### المبادئ الأساسية
+
+**الوضوح والتحديد:**
+بدلاً من "اكتب لي شيء عن الذكاء الاصطناعي"
+استخدم: "اكتب مقالاً من 500 كلمة يشرح فوائد الذكاء الاصطناعي في التعليم، موجه للمعلمين الذين لا يملكون خلفية تقنية"
+
+## التطبيقات العملية في العمل
+
+### في مجال التعليم
+
+**للمعلمين:**
+- إنشاء خطط دروس مخصصة
+- تطوير أسئلة امتحانات متنوعة
+- شرح المفاهيم المعقدة بطرق مبسطة
+- ترجمة المحتوى التعليمي
+
+**للطلاب:**
+- المساعدة في فهم المواد الصعبة
+- تلخيص النصوص الطويلة
+- تصحيح الأخطاء اللغوية
+- العصف الذهني للمشاريع
+
+## الخلاصة والتوصيات
+
+الذكاء الاصطناعي التوليدي ليس مجرد تقنية جديدة، بل هو تحول جذري في طريقة تفاعلنا مع المعلومات والمعرفة. الاستخدام الذكي والمسؤول لهذه التقنيات سيفتح آفاقاً جديدة للإبداع والإنتاجية في جميع المجالات.`,
+            category: "tech",
+            views: 8847,
+            readTime: 18,
+            date: "٢٠٢٤/١/٢٢",
+            author: "إبراهيم بن فيصل",
+            tags: ["ChatGPT", "Gemini", "Claude", "ذكاء اصطناعي توليدي"],
+            rating: 4.9,
+            featured: true,
+            comments: 47,
+            hasFullContent: true
+        },
+        {
+            id: "python-ai-guide",
+            title: "تعلم Python للذكاء الاصطناعي: دليل شامل للمبتدئين 2024",
+            content: "Python هي لغة البرمجة الأكثر شعبية في مجال الذكاء الاصطناعي وعلوم البيانات. في هذا الدليل الشامل، نتعلم أساسيات Python، مكتبات الذكاء الاصطناعي الأساسية.",
+            fullContent: `# تعلم Python للذكاء الاصطناعي: دليل شامل 2024
+
+## مقدمة
+
+Python أصبحت اللغة الرائدة في مجال الذكاء الاصطناعي وعلوم البيانات. في هذا الدليل الشامل، ستتعلم كل ما تحتاجه لبدء رحلتك في عالم الذكاء الاصطناعي باستخدام Python.
+
+## لماذا Python للذكاء الاصطناعي؟
+
+### 1. سهولة التعلم والاستخدام
+
+Python تتميز ببساطة قواعدها النحوية، مما يجعلها مثالية للمبتدئين.
+
+### 2. مكتبات غنية ومتخصصة
+
+Python تحتوي على آلاف المكتبات المتخصصة في الذكاء الاصطناعي:
+- **NumPy**: العمليات الرياضية والمصفوفات
+- **Pandas**: معالجة وتحليل البيانات
+- **Matplotlib/Seaborn**: تصور البيانات
+- **Scikit-learn**: تعلم الآلة التقليدي
+- **TensorFlow/PyTorch**: التعلم العميق
+
+## إعداد البيئة البرمجية
+
+### تثبيت Python
+
+يمكنك تحميل Python من الموقع الرسمي python.org أو استخدام Anaconda للحصول على بيئة متكاملة.
+
+### تثبيت المكتبات الأساسية
+
+\`\`\`bash
+pip install numpy pandas matplotlib scikit-learn tensorflow
+\`\`\`
+
+## أساسيات Python للذكاء الاصطناعي
+
+### هياكل البيانات الأساسية
+
+\`\`\`python
+# قائمة بسيطة
+numbers = [1, 2, 3, 4, 5]
+average = sum(numbers) / len(numbers)
+print(f"المتوسط: {average}")
+\`\`\`
+
+## مكتبة NumPy - أساس الحوسبة العلمية
+
+NumPy هي مكتبة أساسية للحوسبة العلمية في Python وتوفر دعماً للمصفوفات متعددة الأبعاد.
+
+## مكتبة Pandas - معالجة البيانات
+
+Pandas توفر هياكل بيانات قوية وأدوات تحليل البيانات لـ Python.
+
+## مقدمة في التعلم الآلي مع Scikit-learn
+
+Scikit-learn هي مكتبة شاملة للتعلم الآلي في Python تحتوي على خوارزميات متنوعة.
+
+## الخلاصة
+
+Python مع مكتباتها الغنية تجعل دخول عالم الذكاء الاصطناعي أمراً في متناول الجميع. المهم هو البدء والاستمرار في التعلم والممارسة!`,
+            category: "tech",
+            views: 5623,
+            readTime: 25,
+            date: "٢٠٢٤/١/٢٠",
+            author: "إبراهيم بن فيصل",
+            tags: ["Python", "برمجة", "تعلم آلة", "NumPy", "Pandas"],
+            rating: 4.8,
+            featured: false,
+            comments: 34,
+            hasFullContent: true
+        },
+        // مقالات أخرى - محتوى مختصر
+        {
+            id: "cybersecurity-ai",
+            title: "الأمن السيبراني في عصر الذكاء الاصطناعي: التهديدات والحلول",
+            content: "مع تطور الذكاء الاصطناعي، تتطور أيضاً تهديدات الأمن السيبراني. نستكشف أحدث التهديدات مثل Deep Fakes وهجمات AI-powered، وكيفية حماية أنفسنا ومؤسساتنا من هذه المخاطر الجديدة.",
+            category: "tech",
+            views: 4156,
+            readTime: 20,
+            date: "٢٠٢٤/١/١٨",
+            author: "إبراهيم بن فيصل",
+            tags: ["أمن سيبراني", "Deep Fakes", "حماية البيانات"],
+            rating: 4.7,
+            featured: false,
+            comments: 28,
+            hasFullContent: false
+        },
+        {
+            id: "healthy-habits",
+            title: "٧ خطوات لبناء عادات صحية تدوم مدى الحياة",
+            content: "دليل شامل لبناء عادات إيجابية مستدامة والتخلص من العادات السيئة بطريقة علمية ومثبتة. تعلم كيف تجعل التغيير الإيجابي جزءاً من حياتك اليومية.",
+            category: "personal",
+            views: 1234,
+            readTime: 8,
+            date: "٢٠٢٤/١/١٥",
+            author: "إبراهيم بن فيصل",
+            tags: ["تطوير شخصي", "عادات", "صحة"],
+            rating: 4.2,
+            featured: false,
+            comments: 19,
+            hasFullContent: false
+        },
+        {
+            id: "reading-importance",
+            title: "لماذا تبقى القراءة أهم وسيلة لتطوير الفكر؟",
+            content: "في عصر السرعة والمعلومات الرقمية، تحتفظ القراءة بمكانتها الخاصة كأقوى أداة لتوسيع آفاقنا الفكرية وتطوير قدراتنا الذهنية.",
+            category: "culture",
+            views: 987,
+            readTime: 6,
+            date: "٢٠٢٤/١/١٢",
+            author: "إبراهيم بن فيصل",
+            tags: ["قراءة", "ثقافة", "تطوير فكري"],
+            rating: 4.9,
+            featured: false,
+            comments: 12,
+            hasFullContent: false
+        },
+        {
+            id: "gulf-destinations",
+            title: "رحلة استكشافية: أجمل ١٠ وجهات سياحية في الخليج العربي",
+            content: "دليل السفر الشامل لأروع المدن والمناطق التراثية والحديثة في دول الخليج العربي. اكتشف جمال المنطقة وتنوعها الثقافي مع نصائح عملية للمسافرين.",
+            category: "travel",
+            views: 1567,
+            readTime: 15,
+            date: "٢٠٢٤/١/١٠",
+            author: "إبراهيم بن فيصل",
+            tags: ["سفر", "خليج عربي", "سياحة"],
+            rating: 4.6,
+            featured: false,
+            comments: 25,
+            hasFullContent: false
+        },
+        {
+            id: "healthy-recipes",
+            title: "وصفات الطبخ الصحي: ١٥ وجبة لذيذة في ٣٠ دقيقة",
+            content: "مجموعة مختارة من الوصفات السريعة والصحية التي يمكن تحضيرها بسهولة في المنزل. وجبات متوازنة ولذيذة لكل أفراد العائلة مع نصائح غذائية مفيدة.",
+            category: "cooking",
+            views: 789,
+            readTime: 10,
+            date: "٢٠٢٤/١/٨",
+            author: "إبراهيم بن فيصل",
+            tags: ["طبخ", "وصفات", "صحة"],
+            rating: 4.3,
+            featured: false,
+            comments: 8,
+            hasFullContent: false
+        }
+    ];
+
+    // State variables
+    let currentFilter = 'all';
+    let currentPage = 1;
+    const articlesPerPage = 6;
+    let filteredArticles = articlesData;
+
+    // Dark mode functionality
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        if (event.matches) {
+            document.documentElement.classList.add('dark');
         } else {
-            modal.remove(); document.body.style.overflow = '';
+            document.documentElement.classList.remove('dark');
+        }
+    });
+
+    // Initialize the application
+    document.addEventListener('DOMContentLoaded', function() {
+        updateStats();
+        updateCategoryCounts();
+        renderArticles(getArticlesToShow());
+        updateLoadMoreButton();
+        setupEventListeners();
+    });
+
+    // Article reading modal functionality
+    function openArticle(articleId) {
+        const article = articlesData.find(a => a.id === articleId);
+        if (!article) return;
+
+        // Create modal
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 overflow-y-auto';
+        modal.innerHTML = `
+            <div class="bg-white dark:bg-gray-800 max-w-4xl w-full mx-4 my-8 rounded-xl shadow-2xl overflow-hidden max-h-screen flex flex-col">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 flex justify-between items-start">
+                    <div class="flex-1">
+                        <h1 class="text-2xl font-bold mb-2">${article.title}</h1>
+                        <div class="flex items-center text-sm opacity-90 space-x-4 space-x-reverse">
+                            <span>${article.readTime} دقيقة</span>
+                            <span>${article.date}</span>
+                            <span>بواسطة ${article.author}</span>
+                        </div>
+                    </div>
+                    <button onclick="closeArticle()" class="text-white hover:text-gray-300 transition-colors duration-200 p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Content -->
+                <div class="flex-1 overflow-y-auto p-6">
+                    <div class="prose prose-lg max-w-none dark:prose-invert">
+                        ${article.hasFullContent && article.fullContent ? 
+                            marked.parse(article.fullContent) : 
+                            `<p class="text-lg leading-relaxed mb-6">${article.content}</p>
+                             <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-center">
+                                 <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-200 mb-2">المحتوى الكامل قريباً</h3>
+                                 <p class="text-blue-600 dark:text-blue-300">نعمل على إضافة المحتوى الكامل لهذا المقال. ابق متابعاً!</p>
+                             </div>`
+                        }
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 border-t border-gray-200 dark:border-gray-600">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${article.tags.map(tag => `
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200">
+                                ${tag}
+                            </span>
+                        `).join('')}
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2 space-x-reverse text-sm text-gray-600 dark:text-gray-400">
+                            <span>${article.views.toLocaleString()} مشاهدة</span>
+                            <span>${article.comments} تعليق</span>
+                            <span>⭐ ${article.rating}</span>
+                        </div>
+                        <button onclick="closeArticle()" class="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors duration-200">
+                            إغلاق
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden';
+
+        // Add click outside to close
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeArticle();
+            }
+        });
+
+        // Add escape key to close
+        document.addEventListener('keydown', function escHandler(e) {
+            if (e.key === 'Escape') {
+                closeArticle();
+                document.removeEventListener('keydown', escHandler);
+            }
+        });
+    }
+
+    function closeArticle() {
+        const modal = document.querySelector('.fixed.inset-0.bg-black.bg-opacity-75');
+        if (modal) {
+            modal.remove();
+            document.body.style.overflow = '';
         }
     }
-}
-</script>
+
+    // Utility functions
+    function getCategoryName(category) {
+        const categories = {
+            'tech': 'تقنية',
+            'personal': 'تطوير شخصي',
+            'culture': 'ثقافة',
+            'travel': 'سفر',
+            'cooking': 'طبخ'
+        };
+        return categories[category] || category;
+    }
+
+    function updateStats() {
+        const totalViews = articlesData.reduce((sum, article) => sum + article.views, 0);
+        const avgRating = articlesData.reduce((sum, article) => sum + article.rating, 0) / articlesData.length;
+        
+        // Animate counters
+        animateCounter('articles-count', articlesData.length);
+        animateCounter('total-views', totalViews);
+        animateCounter('avg-rating', avgRating, 1);
+    }
+
+    function animateCounter(elementId, target, decimals = 0) {
+        const element = document.getElementById(elementId);
+        const increment = target / 100;
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = decimals > 0 ? current.toFixed(decimals) : Math.floor(current).toLocaleString();
+        }, 20);
+    }
+
+    function updateCategoryCounts() {
+        const categories = ['all', 'tech', 'personal', 'culture', 'travel', 'cooking'];
+        
+        categories.forEach(category => {
+            const count = category === 'all' ? 
+                articlesData.length : 
+                articlesData.filter(article => article.category === category).length;
+            
+            const element = document.getElementById(`count-${category}`);
+            if (element) {
+                element.textContent = count;
+            }
+        });
+    }
+
+    function filterByCategory(category) {
+        currentFilter = category;
+        currentPage = 1;
+        
+        // Update active button
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-category="${category}"]`).classList.add('active');
+        
+        // Filter articles
+        filteredArticles = category === 'all' ? 
+            articlesData : 
+            articlesData.filter(article => article.category === category);
+        
+        // Render filtered articles
+        renderArticles(getArticlesToShow());
+        updateLoadMoreButton();
+        
+        // Close mobile menu if open
+        document.getElementById('mobile-menu').classList.add('hidden');
+    }
+
+    function getArticlesToShow() {
+        const startIndex = 0;
+        const endIndex = currentPage * articlesPerPage;
+        return filteredArticles.slice(startIndex, endIndex);
+    }
+
+    function renderArticles(articles) {
+        const container = document.getElementById('articles-container');
+        container.innerHTML = articles.map(article => `
+            <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group card-hover">
+                <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                    <div class="absolute top-4 left-4">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 text-gray-800">
+                            ${getCategoryName(article.category)}
+                        </span>
+                    </div>
+                    ${article.featured ? '<div class="absolute top-4 right-4"><span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-400 text-yellow-900">مميز</span></div>' : ''}
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <h3 class="text-white font-bold text-lg leading-tight line-clamp-2">${article.title}</h3>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">${article.content}</p>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 space-x-4 space-x-reverse">
+                            <span>${article.readTime} دقيقة</span>
+                            <span>${article.views.toLocaleString()} مشاهدة</span>
+                            <span>${article.date}</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">⭐ ${article.rating}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${article.tags.slice(0, 3).map(tag => `
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                                ${tag}
+                            </span>
+                        `).join('')}
+                        ${article.tags.length > 3 ? `<span class="text-xs text-gray-500 dark:text-gray-400">+${article.tags.length - 3} أخرى</span>` : ''}
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm font-medium">${article.author.charAt(0)}</span>
+                            </div>
+                            <span class="text-sm text-gray-700 dark:text-gray-300">${article.author}</span>
+                        </div>
+                        <button onclick="openArticle('${article.id}')" class="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors duration-200 group-hover:bg-indigo-700">
+                            اقرأ المقال
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        `).join('');
+    }
+
+    function updateLoadMoreButton() {
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const totalArticles = filteredArticles.length;
+        const showingArticles = currentPage * articlesPerPage;
+        
+        if (showingArticles >= totalArticles) {
+            loadMoreBtn.style.display = 'none';
+        } else {
+            loadMoreBtn.style.display = 'inline-block';
+            loadMoreBtn.textContent = `تحميل المزيد (${totalArticles - showingArticles} متبقي)`;
+        }
+    }
+
+    function loadMore() {
+        currentPage++;
+        renderArticles(getArticlesToShow());
+        updateLoadMoreButton();
+    }
+
+    function searchArticles(query) {
+        if (!query.trim()) {
+            filteredArticles = currentFilter === 'all' ? 
+                articlesData : 
+                articlesData.filter(article => article.category === currentFilter);
+        } else {
+            const baseArticles = currentFilter === 'all' ? 
+                articlesData : 
+                articlesData.filter(article => article.category === currentFilter);
+            
+            filteredArticles = baseArticles.filter(article => 
+                article.title.toLowerCase().includes(query.toLowerCase()) ||
+                article.content.toLowerCase().includes(query.toLowerCase()) ||
+                article.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+            );
+        }
+        
+        currentPage = 1;
+        renderArticles(getArticlesToShow());
+        updateLoadMoreButton();
+    }
+
+    function setupEventListeners() {
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Load more button
+        document.getElementById('load-more-btn').addEventListener('click', loadMore);
+
+        // Search functionality
+        const searchInputs = [
+            document.getElementById('search-input'),
+            document.getElementById('mobile-search-input')
+        ];
+
+        searchInputs.forEach(input => {
+            if (input) {
+                input.addEventListener('input', (e) => {
+                    searchArticles(e.target.value);
+                });
+            }
+        });
+
+        // Filter button styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .filter-btn {
+                background: rgba(99, 102, 241, 0.1);
+                color: rgb(99, 102, 241);
+                border: 1px solid transparent;
+            }
+            .filter-btn:hover {
+                background: rgba(99, 102, 241, 0.2);
+            }
+            .filter-btn.active {
+                background: rgb(99, 102, 241);
+                color: white;
+            }
+            .dark .filter-btn {
+                background: rgba(129, 140, 248, 0.1);
+                color: rgb(129, 140, 248);
+            }
+            .dark .filter-btn:hover {
+                background: rgba(129, 140, 248, 0.2);
+            }
+            .dark .filter-btn.active {
+                background: rgb(129, 140, 248);
+                color: rgb(17, 24, 39);
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    </script>
 </body>
 </html>
