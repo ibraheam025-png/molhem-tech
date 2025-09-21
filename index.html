@@ -365,10 +365,414 @@ window.addEventListener('mousemove', e => {
     hero.style.backgroundPosition = `${80 + x*10}% ${10 + y*10}%`;
 });
 
-/* ---- Article Data (use your articlesData block here) ---- */
-const articlesData = [/* ... your articles ... see your question ... */];
+/* ---- Article Data ---- */
+const articlesData = [
+    {
+        id: '1',
+        title: 'مستقبل الذكاء الاصطناعي في التعليم العربي',
+        content: 'استكشاف كيفية تأثير تقنيات الذكاء الاصطناعي على منظومة التعليم في العالم العربي، والتحديات والفرص المتاحة لتطوير التعليم الرقمي باللغة العربية.',
+        category: 'tech',
+        author: 'إبراهيم الأغبس',
+        date: '2024-01-15',
+        readTime: 8,
+        views: 1250,
+        rating: 4.8,
+        comments: 23,
+        tags: ['ذكاء اصطناعي', 'تعليم', 'تقنية', 'مستقبل'],
+        featured: true,
+        hasFullContent: true,
+        fullContent: `# مستقبل الذكاء الاصطناعي في التعليم العربي
 
-// (PASTE your full articlesData array from your original code above here! For brevity, left out in this answer.)
+## مقدمة
+
+يشهد العالم تطوراً متسارعاً في مجال الذكاء الاصطناعي، وهذا التطور يفتح آفاقاً جديدة في قطاع التعليم. في هذا المقال، سنستكشف كيف يمكن للذكاء الاصطناعي أن يثور منظومة التعليم في العالم العربي.
+
+## التحديات الحالية في التعليم العربي
+
+- **نقص في الموارد التعليمية** باللغة العربية
+- **صعوبة الوصول** للتعليم عالي الجودة في المناطق النائية
+- **الحاجة لتخصيص** التعليم حسب قدرات كل طالب
+
+## الفرص المتاحة
+
+### 1. التعلم الشخصي
+يمكن للذكاء الاصطناعي تحليل أسلوب تعلم كل طالب وتقديم محتوى مخصص يناسب قدراته واهتماماته.
+
+### 2. المساعدين الافتراضيين
+تطوير مساعدين ذكيين يتحدثون العربية ويمكنهم الإجابة على أسئلة الطلاب على مدار الساعة.
+
+### 3. التقييم الذكي
+استخدام التحليل التنبؤي لتحديد نقاط القوة والضعف لدى الطلاب وتقديم خطط تحسين شخصية.
+
+## التطبيقات العملية
+
+- **منصات التعلم التفاعلية** التي تتكيف مع مستوى الطالب
+- **أنظمة ترجمة متطورة** لإتاحة المحتوى العالمي باللغة العربية
+- **برامج محاكاة** للتجارب العلمية والتدريب المهني
+
+## الخلاصة
+
+الذكاء الاصطناعي ليس مجرد تقنية جديدة، بل هو أداة قوية يمكنها تحويل التعليم العربي إلى نظام أكثر فعالية وإنصافاً وتخصيصاً. المطلوب الآن هو استثمار حكيم وتخطيط محكم لضمان الاستفادة القصوى من هذه التقنيات.`
+    },
+    {
+        id: '2',
+        title: 'كيفية بناء عادات إيجابية تستمر مدى الحياة',
+        content: 'دليل شامل لفهم علم بناء العادات وتطبيق استراتيجيات عملية لتكوين عادات إيجابية والتخلص من العادات السيئة بطريقة علمية ومؤثرة.',
+        category: 'personal',
+        author: 'إبراهيم الأغبس',
+        date: '2024-01-12',
+        readTime: 6,
+        views: 2100,
+        rating: 4.9,
+        comments: 45,
+        tags: ['تطوير شخصي', 'عادات', 'إنتاجية', 'نمو'],
+        featured: false,
+        hasFullContent: true,
+        fullContent: `# كيفية بناء عادات إيجابية تستمر مدى الحياة
+
+## فهم علم العادات
+
+العادة هي سلوك نقوم به تلقائياً دون تفكير واعي. وفقاً للدراسات، **40% من أفعالنا اليومية** هي عادات وليست قرارات واعية.
+
+## دورة العادة الأساسية
+
+### 1. المحفز (Cue)
+العامل الذي يشير لدماغك لبدء العادة
+
+### 2. الروتين (Routine)  
+السلوك نفسه الذي تريد تكوينه
+
+### 3. المكافأة (Reward)
+الفائدة التي تحصل عليها من أداء العادة
+
+## استراتيجيات بناء العادات الجديدة
+
+### قاعدة الـ 2%
+ابدأ بتحسين صغير جداً (2% يومياً) بدلاً من تغييرات جذرية
+
+### تقنية التكديس
+اربط العادة الجديدة بعادة موجودة بالفعل
+
+**مثال:** "بعد أن أشرب قهوة الصباح، سأقرأ 5 صفحات من كتاب"
+
+### قانون البيئة
+اجعل العادة الجيدة واضحة ومرئية، والعادة السيئة مخفية وصعبة
+
+## خطة عملية للـ 30 يوم الأولى
+
+**الأسبوع الأول:** ركز على الاتساق وليس الكمال
+**الأسبوع الثاني:** زد الصعوبة تدريجياً  
+**الأسبوع الثالث:** تعامل مع التحديات والانتكاسات
+**الأسبوع الرابع:** قيّم التقدم واضبط المسار
+
+## أمثلة عملية
+
+- **عادة القراءة:** اقرأ صفحة واحدة قبل النوم
+- **عادة الرياضة:** اخصص 10 دقائق للحركة عند الاستيقاظ  
+- **عادة التأمل:** تنفس بعمق لمدة دقيقتين بعد كل وجبة
+
+## الخلاصة
+
+بناء العادات الإيجابية يحتاج صبر والتزام، لكن التأثير التراكمي هائل. ابدأ صغيراً، كن متسقاً، وثق في العملية.`
+    },
+    {
+        id: '3',
+        title: 'رحلة استكشاف المغرب: من مراكش إلى الصحراء',
+        content: 'تجربة سفر ممتعة عبر أجمل مدن المغرب، من أسواق مراكش التاريخية إلى كثبان الصحراء الذهبية، مع نصائح عملية للمسافرين العرب.',
+        category: 'travel',
+        author: 'إبراهيم الأغبس',
+        date: '2024-01-10',
+        readTime: 7,
+        views: 1800,
+        rating: 4.7,
+        comments: 31,
+        tags: ['سفر', 'المغرب', 'مراكش', 'صحراء', 'ثقافة'],
+        featured: true,
+        hasFullContent: false
+    },
+    {
+        id: '4',
+        title: 'فن الطبخ المغربي: الطاجين الأصيل خطوة بخطوة',
+        content: 'تعلم كيفية إعداد الطاجين المغربي الأصيل بطريقة تقليدية، مع أسرار النكهات والتوابل التي تجعل الطبق لذيذاً لا يقاوم.',
+        category: 'cooking',
+        author: 'إبراهيم الأغبس',
+        date: '2024-01-08',
+        readTime: 5,
+        views: 3200,
+        rating: 4.8,
+        comments: 67,
+        tags: ['طبخ', 'طاجين', 'مغربي', 'وصفات', 'تقليدي'],
+        featured: false,
+        hasFullContent: true,
+        fullContent: `# فن الطبخ المغربي: الطاجين الأصيل خطوة بخطوة
+
+## مقدمة
+
+الطاجين هو رمز من رموز المطبخ المغربي العريق. هذا الطبق التقليدي الذي يحمل في طياته تاريخاً عريقاً من النكهات والتوابل الأصيلة.
+
+## المكونات الأساسية
+
+### اللحم (1 كيلو)
+- لحم ضأن أو دجاج مقطع قطع متوسطة
+- يفضل اللحم مع العظم للنكهة
+
+### الخضروات
+- 2 حبة بصل مقطعة شرائح
+- 3 حبات جزر مقطعة دوائر سميكة  
+- 2 حبة بطاطس مقطعة أرباع
+- 200 غرام من الزيتون الأخضر
+
+### التوابل المغربية
+- ملعقة صغيرة **رأس الحانوت** (خلطة التوابل المغربية)
+- نصف ملعقة صغيرة زنجبيل مطحون
+- نصف ملعقة صغيرة قرفة
+- رشة زعفران حقيقي
+- ملح وفلفل أسود
+
+## طريقة التحضير
+
+### الخطوة الأولى: تحضير اللحم
+1. اغسل قطع اللحم جيداً وتبلها بالملح والفلفل
+2. اتركها ترتاح لمدة 30 دقيقة
+
+### الخطوة الثانية: الطبخ البطيء
+1. ضع إناء الطاجين على نار متوسطة
+2. أضف زيت الزيتون واتركه يسخن
+3. حمر قطع اللحم من جميع الجهات
+4. أضف البصل واتركه ينذبل
+
+### الخطوة الثالثة: إضافة التوابل
+1. أضف جميع التوابل وحرك لدقيقتين
+2. أضف كوب من الماء المغلي
+3. غطي الإناء واتركه ينضج لمدة ساعة
+
+### الخطوة الرابعة: إضافة الخضروات
+1. أضف الجزر والبطاطس
+2. اتركه ينضج لـ 30 دقيقة إضافية
+3. أضف الزيتون في آخر 10 دقائق
+
+## نصائح الطهي الاحترافية
+
+- **استخدم إناء الطاجين الطيني** للحصول على النكهة الأصيلة
+- **لا تحرك الطعام كثيراً** دعه ينضج بهدوء
+- **تذوق واضبط التوابل** حسب الذوق الشخصي
+
+## التقديم التقليدي
+
+يُقدم الطاجين ساخناً مع:
+- **الخبز المغربي** (الخبز المدور)
+- **سلطة مغربية** بالطماطم والخيار
+- **الشاي المغربي بالنعناع** كمشروب مرافق
+
+## الخلاصة
+
+الطاجين المغربي ليس مجرد وجبة، بل تجربة ثقافية كاملة. بالصبر والتوابل الصحيحة، ستحصل على طبق يحمل كل نكهات المغرب الأصيلة.`
+    },
+    {
+        id: '5',
+        title: 'تأثير القراءة على تطوير الشخصية والذكاء',
+        content: 'دراسة معمقة حول الفوائد العلمية للقراءة وتأثيرها على الدماغ والشخصية، مع استراتيجيات عملية لبناء عادة القراءة اليومية.',
+        category: 'culture',
+        author: 'إبراهيم الأغبس',
+        date: '2024-01-05',
+        readTime: 9,
+        views: 1650,
+        rating: 4.9,
+        comments: 29,
+        tags: ['قراءة', 'ثقافة', 'تطوير', 'ذكاء', 'كتب'],
+        featured: false,
+        hasFullContent: true,
+        fullContent: `# تأثير القراءة على تطوير الشخصية والذكاء
+
+## الفوائد العلمية للقراءة
+
+### تحسين وظائف الدماغ
+الدراسات العلمية تؤكد أن القراءة تنشط مناطق متعددة في الدماغ، مما يحسن:
+- **الذاكرة طويلة المدى**
+- **التركيز والانتباه**  
+- **مهارات التحليل النقدي**
+
+### تطوير الذكاء العاطفي
+قراءة الأدب والروايات تساعد على:
+- فهم مشاعر الآخرين بصورة أفضل
+- تطوير مهارات التعاطف
+- زيادة الوعي الذاتي
+
+## أنواع القراءة وفوائدها
+
+### القراءة التخصصية
+- **تطوير الخبرة** في مجال معين
+- **بناء المهارات المهنية**
+- **مواكبة التطورات** في التخصص
+
+### القراءة الترفيهية  
+- **تخفيف التوتر والضغط**
+- **تحفيز الخيال والإبداع**
+- **تحسين نوعية النوم**
+
+### القراءة التنموية
+- **تطوير المهارات الشخصية**
+- **بناء عادات إيجابية**  
+- **زيادة الثقة بالنفس**
+
+## استراتيجيات بناء عادة القراءة
+
+### ابدأ بـ 15 دقيقة يومياً
+- اختر وقتاً ثابتاً (صباحاً أو مساءً)
+- اقرأ في مكان هادئ ومريح
+- لا تضغط على نفسك في البداية
+
+### اختر كتباً تحبها
+- ابدأ بالمواضيع التي تثير اهتمامك
+- نوع بين الأنواع الأدبية
+- لا تتردد في ترك كتاب لا يعجبك
+
+### انضم لنادي قراءة
+- شارك آرائك مع القراء الآخرين
+- احصل على توصيات جديدة
+- اجعل القراءة نشاطاً اجتماعياً
+
+## نصائح للقراءة الفعالة
+
+### قبل القراءة
+- **اقرأ الملخص** والفهرس
+- **حدد هدفك** من الكتاب
+- **خطط لعدد الصفحات** اليومية
+
+### أثناء القراءة
+- **خذ ملاحظات** للنقاط المهمة
+- **اطرح أسئلة** على النص
+- **اربط المعلومات** بخبراتك الشخصية
+
+### بعد القراءة
+- **لخص** ما تعلمته
+- **طبق** الأفكار في حياتك
+- **شارك** المعرفة مع الآخرين
+
+## كتب ننصح بقراءتها
+
+### في التطوير الشخصي
+- "العادات السبع للناس الأكثر فعالية" - ستيفن كوفي
+- "فكر تصبح غنياً" - نابليون هيل
+
+### في الأدب العربي
+- "مئة عام من العزلة" - غابرييل غارسيا ماركيز  
+- "الأسود يليق بك" - أحلام مستغانمي
+
+### في العلوم والتقنية
+- "الذكاء الاصطناعي" - كاي فو لي
+- "سابيينس: تاريخ موجز للجنس البشري" - يوفال نوح هراري
+
+## الخلاصة
+
+القراءة ليست مجرد هواية، بل استثمار في تطوير العقل والشخصية. كل كتاب تقرأه يضيف طبقة جديدة لفهمك للعالم ولنفسك.`
+    },
+    {
+        id: '6',
+        title: 'ثورة الحوسبة الكمية: هل ستغير مستقبل التقنية؟',
+        content: 'نظرة شاملة على تقنية الحوسبة الكمية وإمكانياتها الهائلة في حل المشاكل المعقدة، والتحديات التي تواجه تطويرها وتطبيقها.',
+        category: 'tech',
+        author: 'إبراهيم الأغبس',
+        date: '2024-01-03',
+        readTime: 10,
+        views: 980,
+        rating: 4.6,
+        comments: 15,
+        tags: ['حوسبة كمية', 'تقنية', 'مستقبل', 'ابتكار'],
+        featured: false,
+        hasFullContent: false
+    },
+    {
+        id: '7',
+        title: 'فن إدارة الوقت: تقنيات مثبتة علمياً',
+        content: 'استراتيجيات عملية لإدارة الوقت بفعالية أكبر، بناءً على أحدث الأبحاث في علم النفس والإنتاجية، مع تطبيقات عملية يومية.',
+        category: 'personal',
+        author: 'إبراهيم الأغبس',
+        date: '2024-01-01',
+        readTime: 6,
+        views: 2800,
+        rating: 4.8,
+        comments: 52,
+        tags: ['إدارة وقت', 'إنتاجية', 'تنظيم', 'تطوير شخصي'],
+        featured: true,
+        hasFullContent: false
+    },
+    {
+        id: '8',
+        title: 'تجربة السفر إلى اليابان: دليل المسافر العربي',
+        content: 'رحلة مفصلة عبر اليابان من طوكيو إلى كيوتو، مع نصائح عملية حول الثقافة اليابانية، التأشيرات، الطعام، والأماكن السياحية المميزة.',
+        category: 'travel',
+        author: 'إبراهيم الأغبس',
+        date: '2023-12-28',
+        readTime: 8,
+        views: 1420,
+        rating: 4.7,
+        comments: 26,
+        tags: ['اليابان', 'سفر', 'ثقافة', 'سياحة', 'آسيا'],
+        featured: false,
+        hasFullContent: false
+    },
+    {
+        id: '9',
+        title: 'أسرار المطبخ الشامي: الكبة اللبنانية الأصيلة',
+        content: 'طريقة إعداد الكبة اللبنانية التقليدية بخطوات مفصلة، مع أسرار الحشو والعجينة والقلي للحصول على كبة مقرمشة من الخارج وطرية من الداخل.',
+        category: 'cooking',
+        author: 'إبراهيم الأغبس',
+        date: '2023-12-25',
+        readTime: 7,
+        views: 2150,
+        rating: 4.9,
+        comments: 38,
+        tags: ['كبة', 'لبناني', 'شامي', 'طبخ', 'تقليدي'],
+        featured: false,
+        hasFullContent: false
+    },
+    {
+        id: '10',
+        title: 'تاريخ الأدب العربي الحديث: من النهضة إلى المعاصرة',
+        content: 'رحلة عبر تطور الأدب العربي من عصر النهضة حتى اليوم، مع استعراض أهم الكتاب والحركات الأدبية التي شكلت الهوية الثقافية العربية.',
+        category: 'culture',
+        author: 'إبراهيم الأغبس',
+        date: '2023-12-22',
+        readTime: 12,
+        views: 890,
+        rating: 4.5,
+        comments: 19,
+        tags: ['أدب عربي', 'تاريخ', 'ثقافة', 'نهضة', 'معاصر'],
+        featured: false,
+        hasFullContent: false
+    },
+    {
+        id: '11',
+        title: 'الأمن السيبراني في عصر إنترنت الأشياء',
+        content: 'التحديات الأمنية الجديدة التي تفرضها أجهزة إنترنت الأشياء، وكيفية حماية خصوصيتنا وبياناتنا في عالم متصل بالكامل.',
+        category: 'tech',
+        author: 'إبراهيم الأغبس',
+        date: '2023-12-20',
+        readTime: 9,
+        views: 1100,
+        rating: 4.7,
+        comments: 21,
+        tags: ['أمن سيبراني', 'إنترنت الأشياء', 'خصوصية', 'حماية'],
+        featured: false,
+        hasFullContent: false
+    },
+    {
+        id: '12',
+        title: 'بناء الثقة بالنفس: دليل عملي للتطوير الذاتي',
+        content: 'استراتيجيات مثبتة لبناء الثقة بالنفس وتطوير صورة ذاتية إيجابية، مع تمارين عملية وتقنيات نفسية فعالة.',
+        category: 'personal',
+        author: 'إبراهيم الأغبس',
+        date: '2023-12-18',
+        readTime: 8,
+        views: 1950,
+        rating: 4.8,
+        comments: 35,
+        tags: ['ثقة بالنفس', 'تطوير ذاتي', 'علم نفس', 'شخصية'],
+        featured: true,
+        hasFullContent: false
+    }
+];
 
 /* ---- State Variables ---- */
 let currentFilter = 'all';
@@ -379,6 +783,19 @@ let filteredArticles = articlesData;
 /* ---- Theme Switcher ---- */
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-toggle-icon');
+
+// Detect initial theme
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark');
+}
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    if (event.matches) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+});
+
 let theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 function setTheme(t) {
     document.documentElement.classList.toggle('dark', t === 'dark');
@@ -418,8 +835,7 @@ function closeMobileMenu() {
     mobileBackdrop.classList.add('hidden');
 }
 
-/* ---- App Initialization (rest same as your main code) ---- */
-
+/* ---- App Initialization ---- */
 document.addEventListener('DOMContentLoaded', function() {
     updateStats();
     updateCategoryCounts();
@@ -427,10 +843,12 @@ document.addEventListener('DOMContentLoaded', function() {
     updateLoadMoreButton();
     setupEventListeners();
 });
+
 function getCategoryName(category) {
     const categories = { 'tech': 'تقنية', 'personal': 'تطوير شخصي', 'culture': 'ثقافة', 'travel': 'سفر', 'cooking': 'طبخ' };
     return categories[category] || category;
 }
+
 function updateStats() {
     const totalViews = articlesData.reduce((sum, a) => sum + a.views, 0);
     const avgRating = articlesData.reduce((sum, a) => sum + a.rating, 0) / articlesData.length;
@@ -438,6 +856,7 @@ function updateStats() {
     animateCounter('total-views', totalViews);
     animateCounter('avg-rating', avgRating, 1);
 }
+
 function animateCounter(elementId, target, decimals = 0) {
     const element = document.getElementById(elementId);
     const increment = target / 100;
@@ -448,6 +867,7 @@ function animateCounter(elementId, target, decimals = 0) {
         element.textContent = decimals > 0 ? current.toFixed(decimals) : Math.floor(current).toLocaleString();
     }, 20);
 }
+
 function updateCategoryCounts() {
     const categories = ['all', 'tech', 'personal', 'culture', 'travel', 'cooking'];
     categories.forEach(category => {
@@ -456,6 +876,7 @@ function updateCategoryCounts() {
         if (element) element.textContent = count;
     });
 }
+
 function filterByCategory(category) {
     currentFilter = category;
     currentPage = 1;
@@ -466,10 +887,12 @@ function filterByCategory(category) {
     updateLoadMoreButton();
     closeMobileMenu();
 }
+
 function getArticlesToShow() {
     const endIndex = currentPage * articlesPerPage;
     return filteredArticles.slice(0, endIndex);
 }
+
 function renderArticles(articles) {
     const container = document.getElementById('articles-container');
     container.innerHTML = articles.map(article => `
@@ -518,6 +941,7 @@ function renderArticles(articles) {
         </article>
     `).join('');
 }
+
 function updateLoadMoreButton() {
     const loadMoreBtn = document.getElementById('load-more-btn');
     const totalArticles = filteredArticles.length;
@@ -529,11 +953,13 @@ function updateLoadMoreButton() {
         loadMoreBtn.textContent = `تحميل المزيد (${totalArticles - showingArticles} متبقي)`;
     }
 }
+
 function loadMore() {
     currentPage++;
     renderArticles(getArticlesToShow());
     updateLoadMoreButton();
 }
+
 function searchArticles(query) {
     if (!query.trim()) {
         filteredArticles = currentFilter === 'all' ? articlesData : articlesData.filter(article => article.category === currentFilter);
@@ -549,6 +975,7 @@ function searchArticles(query) {
     renderArticles(getArticlesToShow());
     updateLoadMoreButton();
 }
+
 function setupEventListeners() {
     document.getElementById('load-more-btn').addEventListener('click', loadMore);
     [document.getElementById('search-input'), document.getElementById('mobile-search-input')].forEach(input => {
@@ -565,6 +992,7 @@ function setupEventListeners() {
         .dark .filter-btn.active { background: rgb(129,140,248); color: rgb(17,24,39);}
     `; document.head.appendChild(style);
 }
+
 /* ---- Article Modal with Animation & Progress ---- */
 function openArticle(articleId) {
     const article = articlesData.find(a => a.id === articleId);
@@ -641,6 +1069,7 @@ function openArticle(articleId) {
         if (e.key === 'Escape') { closeArticle(); document.removeEventListener('keydown', escHandler);}
     });
 }
+
 function closeArticle() {
     const modal = document.querySelector('.fixed.inset-0.bg-black.bg-opacity-75');
     if (modal) {
